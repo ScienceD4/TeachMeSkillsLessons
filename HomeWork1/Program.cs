@@ -1,4 +1,4 @@
-﻿namespace TeachMeSkillsLessons;
+﻿namespace HomeWork1;
 
 public class Program
 {
