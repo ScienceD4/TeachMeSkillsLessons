@@ -10,7 +10,7 @@ public class Program
     public static void Task1()
     {
         Console.Write("Enter operand1: ");
-        var operand1 = Convert.ToDouble(Console.ReadLine()?.Replace(".",","));
+        var operand1 = Convert.ToDouble(Console.ReadLine()?.Replace(".", ","));
         Console.Write("Enter operand2: ");
         var operand2 = Convert.ToDouble(Console.ReadLine()?.Replace(".", ","));
         Console.Write("Enter the sign of operation: ");
@@ -40,7 +40,7 @@ public class Program
                 result = operand1 % operand2;
                 break;
             case "^":
-                result = Math.Pow(operand1,operand2);
+                result = Math.Pow(operand1, operand2);
                 break;
             default:
                 Console.WriteLine("Operation sign not defined");
@@ -64,15 +64,7 @@ public class Program
             { "*", (a, b) => (a * b).ToString() },
             { "+", (a, b) => (a + b).ToString() },
             { "-", (a, b) => (a - b).ToString() },
-            { "/", (a, b) =>
-                {
-                    if (b == 0)
-                    {
-                        return "Infinity";
-                    }
-                    return (a / b).ToString();
-                }
-            },
+            { "/", (a, b) => b == 0 ? "Infinity" : (a / b).ToString() },
             { "%", (a, b) => (a % b).ToString() },
             { "^", (a, b) => Math.Pow(a, b).ToString() },
         };
