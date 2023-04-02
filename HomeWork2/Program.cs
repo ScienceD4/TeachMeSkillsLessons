@@ -10,9 +10,9 @@ public class Program
     public static void Task1()
     {
         Console.Write("Enter operand1: ");
-        var operand1 = Convert.ToDouble(Console.ReadLine()?.Replace(",","."));
+        var operand1 = Convert.ToDouble(Console.ReadLine()?.Replace(".",","));
         Console.Write("Enter operand2: ");
-        var operand2 = Convert.ToDouble(Console.ReadLine()?.Replace(",", "."));
+        var operand2 = Convert.ToDouble(Console.ReadLine()?.Replace(".", ","));
         Console.Write("Enter the sign of operation: ");
         var sing = Console.ReadLine();
         double result;
