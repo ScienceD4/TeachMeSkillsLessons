@@ -49,6 +49,45 @@ public class Program
         Console.WriteLine($"{operand1} {sing} {operand2} = {result}");
     }
 
+    public static void Task1Version2()
+    {
+        Console.Write("Enter operand1: ");
+        var operand1 = Convert.ToDouble(Console.ReadLine()?.Replace(".", ","));
+        Console.Write("Enter operand2: ");
+        var operand2 = Convert.ToDouble(Console.ReadLine()?.Replace(".", ","));
+        Console.Write("Enter the sign of operation: ");
+        var sing = Console.ReadLine() ?? string.Empty;
+        string result;
+
+        var dictionaryOfoperations = new Dictionary<string, Func<double, double, string>>()
+        {
+            { "*", (a, b) => (a * b).ToString() },
+            { "+", (a, b) => (a + b).ToString() },
+            { "-", (a, b) => (a - b).ToString() },
+            { "/", (a, b) =>
+                {
+                    if (b == 0)
+                    {
+                        return "Infinity";
+                    }
+                    return (a / b).ToString();
+                }
+            },
+            { "%", (a, b) => (a % b).ToString() },
+            { "^", (a, b) => Math.Pow(a, b).ToString() },
+        };
+
+        if (dictionaryOfoperations.TryGetValue(sing, out var operation))
+        {
+            result = operation(operand1, operand2);
+            Console.WriteLine($"{operand1} {sing} {operand2} = {result}");
+        }
+        else
+        {
+            Console.WriteLine("Operation sign not defined");
+        }
+    }
+
     public static void Task2()
     {
         Console.Write("Enter number: ");
@@ -86,9 +125,9 @@ public class Program
         };
 
         Console.Write("Enter a word in Russian: ");
-        string russianWord = Console.ReadLine();
+        string russianWord = Console.ReadLine() ?? string.Empty;
 
-        if (dictionary.TryGetValue(russianWord.ToLower(), out string englishWord))
+        if (dictionary.TryGetValue(russianWord.ToLower(), out var englishWord))
         {
             Console.WriteLine($"Translation of \"{russianWord}\" in English: {englishWord}");
         }
