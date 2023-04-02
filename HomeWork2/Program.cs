@@ -4,7 +4,7 @@ public class Program
 {
     public static void Main()
     {
-        Task2();
+        Task3();
     }
 
     public static void Task1()
@@ -66,5 +66,35 @@ public class Program
             Console.WriteLine("Range [51 - 100]");
         else
             Console.WriteLine("The number is not in any range. It is over 100");
+    }
+
+    public static void Task3()
+    {
+        var dictionary = new Dictionary<string, string>()
+        {
+            { "солнечно", "sunny" },
+            {"ясно", "clear"},
+            { "облачно", "cloudy" },
+            { "дождь", "rain" },
+            { "снег", "snow" },
+            { "ветер", "wind" },
+            { "туман", "fog" },
+            { "гроза", "thunderstorm" },
+            { "жара", "heat" },
+            { "холод", "cold" },
+            { "влажность", "humidity" }
+        };
+
+        Console.Write("\r\nEnter a word in Russian: ");
+        string russianWord = Console.ReadLine();
+
+        if (dictionary.TryGetValue(russianWord.ToLower(), out string englishWord))
+        {
+            Console.WriteLine($"Translation of \"{russianWord}\" in English: {englishWord}");
+        }
+        else
+        {
+            Console.WriteLine($"Word \"{russianWord}\" not found in the dictionary.");
+        }
     }
 }
