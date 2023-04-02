@@ -4,7 +4,7 @@ public class Program
 {
     public static void Main()
     {
-        Task1();
+        Task2();
     }
 
     public static void Task1()
@@ -47,5 +47,24 @@ public class Program
                 return;
         }
         Console.WriteLine($"{operand1} {sing} {operand2} = {result}");
+    }
+
+    public static void Task2()
+    {
+        Console.Write("Enter number: ");
+        var number = Convert.ToInt32(Console.ReadLine());
+
+        if (number < 0)
+            Console.WriteLine("The number is not in any range. It is less than zero");
+        else if (number < 15)
+            Console.WriteLine("Range [0 - 14]");
+        else if (number < 36)
+            Console.WriteLine("Range [15 - 35]");
+        else if (number < 51)
+            Console.WriteLine("Range [36 - 50]");
+        else if (number < 101)
+            Console.WriteLine("Range [51 - 100]");
+        else
+            Console.WriteLine("The number is not in any range. It is over 100");
     }
 }
