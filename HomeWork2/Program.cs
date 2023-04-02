@@ -85,7 +85,7 @@ public class Program
             { "влажность", "humidity" }
         };
 
-        Console.Write("\r\nEnter a word in Russian: ");
+        Console.Write("Enter a word in Russian: ");
         string russianWord = Console.ReadLine();
 
         if (dictionary.TryGetValue(russianWord.ToLower(), out string englishWord))
@@ -96,5 +96,16 @@ public class Program
         {
             Console.WriteLine($"Word \"{russianWord}\" not found in the dictionary.");
         }
+    }
+
+    public static void Task4()
+    {
+        Console.Write("Enter number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        if (number % 2 == 0)
+            Console.WriteLine($"Number {number} is even.");
+        else
+            Console.WriteLine($"Number {number} is odd.");
     }
 }
