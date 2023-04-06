@@ -49,7 +49,11 @@ public static class Task0
 
         foreach (var num in array)
         {
-            if (num == number) isNumberContains = true;
+            if (num == number)
+            {
+                isNumberContains = true;
+                break;
+            }
         }
 
         if (isNumberContains)

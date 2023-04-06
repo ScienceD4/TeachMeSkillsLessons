@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HomeWork3;
+﻿namespace HomeWork3;
 
 public static class Common
 {
@@ -15,7 +13,8 @@ public static class Common
 
         return array;
     }
-    public static int[,] Generate2DArrayInt32(int length0,int length1, int minValue = 0, int maxValue = 100)
+
+    public static int[,] Generate2DArrayInt32(int length0, int length1, int minValue = 0, int maxValue = 100)
     {
         var random = new Random();
         var array = new int[length0, length1];
@@ -63,6 +62,13 @@ public static class Common
                 }
             }
         }
+    }
+
+    public static bool NumberIsEven(int number)
+    {
+        if (number % 2 == 0)
+            return true;
+        return false;
     }
 
     public static string GenerateToken(int length)

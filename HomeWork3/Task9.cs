@@ -33,7 +33,7 @@ public static class Task9
         var j = 0;
         for (int i = 0; i < array.Length; i++)
         {
-            if (NumberIsEven(array[i]))
+            if (Common.NumberIsEven(array[i]))
             {
                 newArray[j] = array[i];
                 j++;
@@ -63,15 +63,8 @@ public static class Task9
         int count = 0;
         foreach (var num in array)
         {
-            if (NumberIsEven(num)) count++;
+            if (Common.NumberIsEven(num)) count++;
         }
         return count;
-    }
-
-    private static bool NumberIsEven(int number)
-    {
-        if (number % 2 == 0)
-            return true;
-        return false;
     }
 }

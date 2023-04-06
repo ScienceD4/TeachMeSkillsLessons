@@ -18,7 +18,14 @@ public static class Task4
         Console.WriteLine(string.Join(' ', array));
         Console.WriteLine();
 
-        // TODO
+        for (int i = 1; i < array.Length; i+=2)
+        {
+            array[i] = 0;
+        }
+
+        Console.WriteLine("New Array:");
+        Console.WriteLine(string.Join(' ', array));
+        Console.WriteLine();
 
         Console.WriteLine(new string('*', 17));
         Console.WriteLine();
