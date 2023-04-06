@@ -35,6 +35,7 @@ public static class Task8
         }
         Console.WriteLine();
     }
+
     private static void PrintSideDiagonal(int[,] array)
     {
         var length = Math.Min(array.GetLength(0), array.GetLength(1));

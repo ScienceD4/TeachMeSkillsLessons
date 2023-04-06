@@ -11,7 +11,7 @@ public static class Task7
         Console.WriteLine($"{new string('*', 5)} {nameof(Task7)} {new string('*', 5)}");
 
         var random = new Random();
-        var array = Common.Generate2DArrayInt32(4,3);
+        var array = Common.Generate2DArrayInt32(4, 3);
 
         Console.WriteLine("Array:\n\r");
         Common.Print2DArray(array);

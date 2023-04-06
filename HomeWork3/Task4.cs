@@ -18,7 +18,7 @@ public static class Task4
         Console.WriteLine(string.Join(' ', array));
         Console.WriteLine();
 
-        for (int i = 1; i < array.Length; i+=2)
+        for (int i = 1; i < array.Length; i += 2)
         {
             array[i] = 0;
         }
