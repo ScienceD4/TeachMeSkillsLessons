@@ -27,6 +27,5 @@ public class Task3 : TaskBase
 
         Console.Write("secondPart: ");
         Console.WriteLine(secondPart);
-        Console.WriteLine();
     }
 }

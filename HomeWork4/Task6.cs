@@ -9,20 +9,31 @@ public class Task6 : TaskBase
     protected override void DoWork()
     {
         Console.Write("Enter a stringOne: ");
-        var strOne = Console.ReadLine();
+        var strOne = Console.ReadLine() ?? string.Empty;
         Console.WriteLine();
         Console.Write("Enter a stringTwo: ");
-        var strTwo = Console.ReadLine();
+        var strTwo = Console.ReadLine() ?? string.Empty;
         Console.WriteLine();
 
-        var array = strOne.Split();
+        var wordsOne = strOne.Split();
+        var wordsTwo = strTwo.Split();
 
-        var count = 0;
-        foreach (var word in array)
+        var occurrences = new int[wordsOne.Length];
+
+        for (int i = 0; i < wordsOne.Length; i++)
         {
-            if (strTwo.Contains(word, StringComparison.OrdinalIgnoreCase)) count++;
+            foreach (var word in wordsTwo)
+            {
+                if (word.Equals(wordsOne[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    occurrences[i]++;
+                }
+            }
         }
 
-        Console.WriteLine($"The strTwo contains {count} words from the strOne");
+        for (int i = 0; i < wordsOne.Length; i++)
+        {
+            Console.WriteLine($"The word \"{wordsOne[i]}\" has {occurrences[i]} occurrences in a sentence stringTwo");
+        }
     }
 }
