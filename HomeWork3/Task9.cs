@@ -30,8 +30,7 @@ public static class Task9
 
         var newArray = new int[CountOfEvenNumbers(array)];
 
-        var j = 0;
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0, j = 0; i < array.Length; i++)
         {
             if (Common.NumberIsEven(array[i]))
             {
