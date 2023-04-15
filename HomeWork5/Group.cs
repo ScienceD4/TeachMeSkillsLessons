@@ -4,12 +4,10 @@ public class Group
 {
     public string Name { get; set; }
     public Student[] Students { get; set; }
-
     public double AverageMathMark => GetAverageMathMark();
     public double AveragePhysicalEducationMark => GetAveragePhysicalEducationMark();
     public double AverageBiologyMark => GetAverageBiologyMark();
     public double AverageAllMarks => GetAverageAllMarks();
-
     public Student StudentWithMaxMathMark => GetStudentWithMaxMathMark();
     public Student StudentWithMaxPhysicalEducationMark => GetStudentWithMaxPhysicalEducationMark();
     public Student StudentWithMaxBiologyMark => GetStudentWithMaxBiologyMark();
