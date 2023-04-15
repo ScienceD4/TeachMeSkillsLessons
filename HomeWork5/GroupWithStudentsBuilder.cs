@@ -1,17 +1,17 @@
 ﻿namespace HomeWork5;
 
-public class GroupWithSrudentsBuilder
+public class GroupWithStudentsBuilder
 {
     private int CountGroups { get; set; }
     private int CountStudents { get; set; }
 
-    public GroupWithSrudentsBuilder AddCountGroups(int count)
+    public GroupWithStudentsBuilder AddCountGroups(int count)
     {
         CountGroups = count;
         return this;
     }
 
-    public GroupWithSrudentsBuilder AddCountStudents(int count)
+    public GroupWithStudentsBuilder AddCountStudents(int count)
     {
         CountStudents = count;
         return this;

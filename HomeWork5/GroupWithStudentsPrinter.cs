@@ -1,10 +1,10 @@
 ﻿namespace HomeWork5;
 
-public class GroupWithSrudentsPrinter
+public class GroupWithStudentsPrinter
 {
     public Group[] Groups { get; set; }
 
-    public GroupWithSrudentsPrinter(Group[] groups)
+    public GroupWithStudentsPrinter(Group[] groups)
     {
         Groups = groups;
     }
@@ -46,19 +46,19 @@ public class GroupWithSrudentsPrinter
         }
     }
 
-    public static void PrintStudentsWithMaxMark(GroupWithSrudentsOperation gOperation)
+    public static void PrintStudentsWithMaxMark(GroupWithStudentsOperation gOperation)
     {
-        GroupWithSrudentsPrinter.PrintStudents(
+        GroupWithStudentsPrinter.PrintStudents(
             gOperation.StudentsWithMaxMathMarkOfGroup,
             "Students with Max mathMark of Group:");
         Console.WriteLine();
 
-        GroupWithSrudentsPrinter.PrintStudents(
+        GroupWithStudentsPrinter.PrintStudents(
             gOperation.StudentsWithMaxPhysicalEducationMarkOfGroup,
             "Students with Max physicalEducationMark of Group:");
         Console.WriteLine();
 
-        GroupWithSrudentsPrinter.PrintStudents(
+        GroupWithStudentsPrinter.PrintStudents(
             gOperation.StudentsWithMaxBiologyMarkOfGroup,
             "Students with Max MaxBiologyMark of Group:");
         Console.WriteLine();
@@ -76,9 +76,9 @@ public class GroupWithSrudentsPrinter
         }
     }
 
-    public void PrintStudentsWithHighestReward(GroupWithSrudentsOperation gOperation)
+    public void PrintStudentsWithHighestReward(GroupWithStudentsOperation gOperation)
     {
-        GroupWithSrudentsPrinter.PrintStudents(
+        GroupWithStudentsPrinter.PrintStudents(
             gOperation.StudentsWithHighestReward,
             "Student(s) with Highest Reward:"
             );

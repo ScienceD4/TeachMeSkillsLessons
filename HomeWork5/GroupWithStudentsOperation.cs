@@ -1,13 +1,13 @@
 ﻿namespace HomeWork5;
 
-public class GroupWithSrudentsOperation
+public class GroupWithStudentsOperation
 {
     public Group[] Groups { get; set; }
     private Student[] studentsWithMaxBiologyMarkOfGroup;
     private Student[] studentsWithMaxMathMarkOfGroup;
     private Student[] studentsWithMaxPhysicalEducationMarkOfGroup;
 
-    public GroupWithSrudentsOperation(Group[] groups)
+    public GroupWithStudentsOperation(Group[] groups)
     {
         Groups = groups;
     }
