@@ -4,25 +4,25 @@ internal class Program
 {
     private static void Main()
     {
-        var gBuilder = new GroupWithSrudentsBuilder();
+        var gBuilder = new GroupWithStudentsBuilder();
 
         var groups = gBuilder
             .AddCountGroups(3)
                 .AddCountStudents(5)
                     .Build();
 
-        var gPrinter = new GroupWithSrudentsPrinter(groups);
+        var gPrinter = new GroupWithStudentsPrinter(groups);
 
         Console.WriteLine($"We have {groups.Length} Groups\r\n");
         gPrinter.PrintAllGroups();
 
-        var gOperation = new GroupWithSrudentsOperation(groups);
+        var gOperation = new GroupWithStudentsOperation(groups);
 
-        GroupWithSrudentsOperation.AddReward(gOperation.StudentsWithMaxMathMarkOfGroup);
-        GroupWithSrudentsOperation.AddReward(gOperation.StudentsWithMaxPhysicalEducationMarkOfGroup);
-        GroupWithSrudentsOperation.AddReward(gOperation.StudentsWithMaxBiologyMarkOfGroup);
+        GroupWithStudentsOperation.AddReward(gOperation.StudentsWithMaxMathMarkOfGroup);
+        GroupWithStudentsOperation.AddReward(gOperation.StudentsWithMaxPhysicalEducationMarkOfGroup);
+        GroupWithStudentsOperation.AddReward(gOperation.StudentsWithMaxBiologyMarkOfGroup);
 
-        GroupWithSrudentsPrinter.PrintStudentsWithMaxMark(gOperation);
+        GroupWithStudentsPrinter.PrintStudentsWithMaxMark(gOperation);
 
         gPrinter.PrintAverageEveryMarks();
 
@@ -30,7 +30,7 @@ internal class Program
 
         var groupHighestAverage = gOperation.GroupHighestAverageMarks;
 
-        GroupWithSrudentsOperation.AddReward(groupHighestAverage.Students);
+        GroupWithStudentsOperation.AddReward(groupHighestAverage.Students);
 
         Console.WriteLine("Result:");
         gPrinter.PrintAllGroups();
