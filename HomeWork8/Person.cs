@@ -6,8 +6,7 @@ public class Person
 
     public string Name { get; set; }
     public double MaxNumberOfCalories { get; set; }
-    public Ration? Ration
-    { get => ration; set { CheckAndSetRation(value); } }
+    public Ration? Ration { get => ration; set { CheckAndSetRation(value); } }
 
     public Person(string name, double maxNumberOfCalories)
     {
