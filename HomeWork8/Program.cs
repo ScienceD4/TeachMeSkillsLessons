@@ -6,11 +6,8 @@ internal class Program
     {
         var ration = RationCreator.Create();
 
-        var person = new Person("Alex", 1500)
-        {
-            Ration = ration
-        };
+        var person = new Person("Alex", 1500, ration);
 
-        person.Ration.PrintInfo();
+        person.Ration?.PrintInfo();
     }
 }

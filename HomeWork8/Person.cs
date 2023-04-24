@@ -14,6 +14,11 @@ public class Person
         MaxNumberOfCalories = maxNumberOfCalories;
     }
 
+    public Person(string name, double maxNumberOfCalories, Ration ration) : this(name, maxNumberOfCalories)
+    {
+        Ration = ration;
+    }
+
     private void CheckAndSetRation(Ration? ration)
     {
         if (ration == null) return;
