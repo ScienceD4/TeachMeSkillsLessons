@@ -48,7 +48,7 @@ public static class RationCreator
     {
         var ration = new Ration();
 
-        for (int i = 0; i < 7; i++)
+        foreach (var day in Enum.GetValues<DayOfWeek>())
         {
             var prodList = new List<Product>();
 
@@ -64,7 +64,7 @@ public static class RationCreator
                 prodList.Add(product);
             }
 
-            ration.Add((DayOfWeek)i, prodList);
+            ration.Add(day, prodList);
         }
 
         return ration;
