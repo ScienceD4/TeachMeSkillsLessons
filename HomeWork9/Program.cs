@@ -25,16 +25,14 @@ internal class Program
 
             PrintList(
                 personList
-                    .Where(p => p.Name.StartsWith('A'))
-                    .ToList());
+                    .Where(p => p.Name.StartsWith('A')));
             Console.WriteLine();
 
             Console.WriteLine("salary over 1000 and age less 30");
             PrintList(
                 personList
                     .Where(p => p.Salary > 1000
-                            && p.Age < 30)
-                    .ToList());
+                            && p.Age < 30));
             Console.WriteLine();
 
             Console.WriteLine("first person over 50 age");
@@ -53,20 +51,22 @@ internal class Program
         }
         catch (AgeException ex)
         {
-            LogException(ex);
-
+            LogException(ex, "Age Error");
         }
         catch (SalaryException ex)
         {
-            LogException(ex);
+            LogException(ex, "Salary Error");
         }
     }
 
-    static void PrintList<T>(List<T> list)
+    public static void PrintList<T>(IEnumerable<T> list)
     {
-        if (list?.Any() ?? false)
+        if (list?.Any() == true)
         {
-            list.ForEach(p => Console.WriteLine(p));
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
         }
         else
         {
@@ -74,14 +74,15 @@ internal class Program
         }
     }
 
-    private static void LogException(Exception ex)
+    private static void LogException(Exception ex, string? message = null)
     {
+        if (message != null) Console.WriteLine(message);
         Console.WriteLine(ex.Message);
-        Console.WriteLine(ex.StackTrace);
+        //Console.WriteLine(ex.StackTrace);
 
-        if (ex.InnerException is not null)
-        {
-            LogException(ex.InnerException);
-        }
+        //if (ex.InnerException is not null)
+        //{
+        //    LogException(ex.InnerException);
+        //}
     }
 }

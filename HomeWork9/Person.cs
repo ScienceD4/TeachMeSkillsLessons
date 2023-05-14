@@ -38,6 +38,10 @@ public class Person
         Salary = salary;
     }
 
+    public Person()
+    {
+    }
+
     public override string ToString()
     {
         return $"person: {Name}, Age: {Age}, Salary: {Salary}";
