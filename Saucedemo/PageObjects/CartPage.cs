@@ -32,10 +32,10 @@ public class CartPage : BasePage
         return this;
     }
 
-    public CheckuotPage Checkout()
+    public CheckoutPage Checkout()
     {
         CheckOutButton.Click();
 
-        return new CheckuotPage(Driver);
+        return new CheckoutPage(Driver);
     }
 }

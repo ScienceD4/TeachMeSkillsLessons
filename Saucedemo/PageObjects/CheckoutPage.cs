@@ -4,7 +4,7 @@ using Saucedemo.PageObjects.Parameters;
 
 namespace Saucedemo.PageObjects;
 
-public class CheckuotPage : BasePage
+public class CheckoutPage : BasePage
 {
     private readonly By fistNameInput = By.CssSelector("[data-test='firstName']");
     private readonly By lastPassInput = By.CssSelector("[data-test='lastName']");
@@ -24,11 +24,11 @@ public class CheckuotPage : BasePage
 
     public List<UICheckoutItem> UICheckoutItems { get; set; }
 
-    public CheckuotPage(IWebDriver driver) : base(driver)
+    public CheckoutPage(IWebDriver driver) : base(driver)
     {
     }
 
-    public CheckuotPage GetData()
+    public CheckoutPage GetData()
     {
         UICheckoutItems = new List<UICheckoutItem>();
 
@@ -43,7 +43,7 @@ public class CheckuotPage : BasePage
         return this;
     }
 
-    public CheckuotPage Continue(UserModel? user = null)
+    public CheckoutPage Continue(UserModel? user = null)
     {
         user ??= new UserModel("123", "123", "123");
 
@@ -56,7 +56,7 @@ public class CheckuotPage : BasePage
         return this;
     }
 
-    public CheckuotPage Finish()
+    public CheckoutPage Finish()
     {
         FinishButton.Click();
 

@@ -7,12 +7,10 @@ namespace Saucedemo.PageObjects;
 public class InventoryPage : BasePage
 {
     private readonly By shoppingCart = By.CssSelector(".shopping_cart_link");
-    private readonly By addButton = By.CssSelector(".btn.btn_primary.btn_small");
     private readonly By inventoryItems = By.CssSelector(".inventory_item");
     private readonly By inventorySort = By.CssSelector("[data-test='product_sort_container']");
 
     private IWebElement ShoppingCart => Driver.FindElement(shoppingCart);
-    private IWebElement AddButton => Driver.FindElement(addButton);
     private IWebElement SortSelect => Driver.FindElement(inventorySort);
     private IReadOnlyCollection<IWebElement> InventoryItems => Driver.FindElements(inventoryItems);
 
