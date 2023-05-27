@@ -37,12 +37,7 @@ public class CheckBoxesPage : BasePage
 
     private static bool IsChecked(IWebElement checkBox)
     {
-        if (checkBox.Selected || checkBox.GetAttribute("checked")?.ToLower() == "true")
-        {
-            return true;
-        }
-
-        return false;
+        return (checkBox.Selected || checkBox.GetAttribute("checked")?.ToLower() == "true");
     }
 
     private static void Set(IWebElement checkBox, bool state)
