@@ -19,7 +19,6 @@ public class BaseTest
     [TearDown]
     public virtual void TearDown()
     {
-        //Thread.Sleep(2000);
         Driver.Dispose();
     }
 }
