@@ -2,9 +2,9 @@
 
 namespace Saucedemo.PageObjects;
 
-public  abstract class BasePage
+public abstract class BasePage
 {
-    protected readonly static string url = "https://www.saucedemo.com/";
+    protected static readonly string url = "https://www.saucedemo.com/";
 
     protected IWebDriver Driver { get; }
 

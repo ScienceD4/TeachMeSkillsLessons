@@ -6,21 +6,21 @@ namespace Saucedemo.PageObjects;
 
 public class CheckuotPage : BasePage
 {
-    readonly By fistNameInput = By.CssSelector("[data-test='firstName']");
-    readonly By lastPassInput = By.CssSelector("[data-test='lastName']");
-    readonly By postalCodeInput = By.CssSelector("[data-test='postalCode']");
-    readonly By continueButton = By.CssSelector("[data-test='continue']");
-    readonly By finishButton = By.CssSelector("[data-test='finish']");
-    readonly By backHomeButton = By.CssSelector("[data-test='back-to-products']");
-    readonly By checkoutItems = By.CssSelector(".cart_item");
+    private readonly By fistNameInput = By.CssSelector("[data-test='firstName']");
+    private readonly By lastPassInput = By.CssSelector("[data-test='lastName']");
+    private readonly By postalCodeInput = By.CssSelector("[data-test='postalCode']");
+    private readonly By continueButton = By.CssSelector("[data-test='continue']");
+    private readonly By finishButton = By.CssSelector("[data-test='finish']");
+    private readonly By backHomeButton = By.CssSelector("[data-test='back-to-products']");
+    private readonly By checkoutItems = By.CssSelector(".cart_item");
 
-    IWebElement FistNameInput => Driver.FindElement(fistNameInput);
-    IWebElement LastPassInput => Driver.FindElement(lastPassInput);
-    IWebElement PostalCodeInput => Driver.FindElement(postalCodeInput);
-    IWebElement ContinueButton => Driver.FindElement(continueButton);
-    IWebElement FinishButton => Driver.FindElement(finishButton);
-    IWebElement BackHomeButton => Driver.FindElement(backHomeButton);
-    IReadOnlyCollection<IWebElement> CheckoutItems => Driver.FindElements(checkoutItems);
+    private IWebElement FistNameInput => Driver.FindElement(fistNameInput);
+    private IWebElement LastPassInput => Driver.FindElement(lastPassInput);
+    private IWebElement PostalCodeInput => Driver.FindElement(postalCodeInput);
+    private IWebElement ContinueButton => Driver.FindElement(continueButton);
+    private IWebElement FinishButton => Driver.FindElement(finishButton);
+    private IWebElement BackHomeButton => Driver.FindElement(backHomeButton);
+    private IReadOnlyCollection<IWebElement> CheckoutItems => Driver.FindElements(checkoutItems);
 
     public List<UICheckoutItem> UICheckoutItems { get; set; }
 

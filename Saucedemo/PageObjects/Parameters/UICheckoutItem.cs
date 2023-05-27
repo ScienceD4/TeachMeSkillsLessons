@@ -4,7 +4,7 @@ namespace Saucedemo.PageObjects.Parameters;
 
 public class UICheckoutItem : UIProductItem
 {
-    readonly By quantityDiv = By.CssSelector(".cart_quantity");
+    private readonly By quantityDiv = By.CssSelector(".cart_quantity");
 
     public int Quantity { get; set; }
 

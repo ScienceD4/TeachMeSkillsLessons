@@ -22,7 +22,6 @@ public class InventoryTest : BaseTest
         var inventoryNameAfter = inventoryPage.UIInventoryItems.Select(x => x.Name).ToList();
         bool isSortedAfter = inventoryNameAfter.SequenceEqual(inventoryNameAfter.OrderByDescending(x => x));
 
-
         Assert.Multiple(() =>
         {
             Assert.That(isSortedBefore, Is.True);
@@ -46,7 +45,6 @@ public class InventoryTest : BaseTest
 
         var inventoryPriceAfter = inventoryPage.UIInventoryItems.Select(x => x.Price).ToList();
         bool isSortedAfter = inventoryPriceAfter.SequenceEqual(inventoryPriceAfter.OrderByDescending(x => x));
-
 
         Assert.Multiple(() =>
         {
