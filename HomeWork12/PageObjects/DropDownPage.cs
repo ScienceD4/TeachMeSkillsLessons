@@ -45,11 +45,6 @@ public class DropDownPage : BasePage
 
     private static bool IsSelected(IWebElement element)
     {
-        if (element.GetAttribute("selected") == "true")
-        {
-            return true;
-        }
-
-        return false;
+        return (element.GetAttribute("selected") == "true");
     }
 }
