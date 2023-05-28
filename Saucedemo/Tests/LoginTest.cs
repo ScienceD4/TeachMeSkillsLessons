@@ -42,7 +42,6 @@ public class LoginTest : BaseTest
         {
             Assert.That(page.IsExist(), Is.True);
             Assert.That(text, Does.Contain(expextedError));
-
         });
 
     }
