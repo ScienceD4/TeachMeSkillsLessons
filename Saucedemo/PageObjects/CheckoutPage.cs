@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using Saucedemo.Common;
 using Saucedemo.Models;
 using Saucedemo.PageObjects.Parameters;
 
@@ -26,6 +27,7 @@ public class CheckoutPage : BasePage
 
     public CheckoutPage(IWebDriver driver) : base(driver)
     {
+        Driver.WaitLoadPage(this, TIME_OUT_LOAD_PAGE);
     }
 
     public CheckoutPage GetData()
@@ -68,5 +70,10 @@ public class CheckoutPage : BasePage
         BackHomeButton.Click();
 
         return new InventoryPage(Driver);
+    }
+
+    public override bool IsExist()
+    {
+        return ContinueButton.Displayed;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Saucedemo.Common;
 using Saucedemo.PageObjects.Parameters;
 
 namespace Saucedemo.PageObjects;
@@ -15,9 +16,12 @@ public class InventoryPage : BasePage
     private IReadOnlyCollection<IWebElement> InventoryItems => Driver.FindElements(inventoryItems);
 
     public List<UIInventoryItem> UIInventoryItems { get; set; }
+    public BurgerMenuForm BurgerMenu { get; set; }
 
     public InventoryPage(IWebDriver driver) : base(driver)
     {
+        BurgerMenu = new BurgerMenuForm(driver);
+        Driver.WaitLoadPage(this, TIME_OUT_LOAD_PAGE);
     }
 
     public CartPage OpenCart()
@@ -27,7 +31,7 @@ public class InventoryPage : BasePage
         return new CartPage(Driver);
     }
 
-    public bool IsExist()
+    public override bool IsExist()
     {
         return ShoppingCart.Displayed;
     }

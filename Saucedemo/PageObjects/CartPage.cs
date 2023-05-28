@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V111.Network;
+using Saucedemo.Common;
 using Saucedemo.PageObjects.Parameters;
 
 namespace Saucedemo.PageObjects;
@@ -15,6 +17,7 @@ public class CartPage : BasePage
 
     public CartPage(IWebDriver driver) : base(driver)
     {
+        Driver.WaitLoadPage(this, TIME_OUT_LOAD_PAGE);
     }
 
     public CartPage GetData()
@@ -37,5 +40,10 @@ public class CartPage : BasePage
         CheckOutButton.Click();
 
         return new CheckoutPage(Driver);
+    }
+
+    public override bool IsExist()
+    {
+        return CheckOutButton.Displayed;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using Saucedemo.Common;
 
 namespace Saucedemo.PageObjects;
 
@@ -27,6 +28,7 @@ public class LoginPage : BasePage
     public LoginPage Show()
     {
         Driver.Navigate().GoToUrl(url);
+        Driver.WaitLoadPage(this, TIME_OUT_LOAD_PAGE);
 
         return this;
     }
@@ -39,4 +41,33 @@ public class LoginPage : BasePage
 
         return new InventoryPage(Driver);
     }
+
+    public InventoryPage LoginGlitchUser()
+    {
+        UserNameInput.SendKeys(PERFORMANCE_GLITCH_USER);
+        UserPassInput.SendKeys(PASSWORD);
+        LoginButton.Click();
+
+        return new InventoryPage(Driver);
+    }
+
+    public LoginPage LoginLockedUser()
+    {
+        UserNameInput.SendKeys(LOCKED_OUT_USER);
+        UserPassInput.SendKeys(PASSWORD);
+        LoginButton.Click();
+
+        return this;
+    }
+
+    public string GetErrorMessage()
+    {
+        return ErrorMessage.Text;
+    }
+
+    public override bool IsExist()
+    {
+        return LoginButton.Displayed;
+    }
+
 }
