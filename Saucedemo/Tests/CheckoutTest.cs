@@ -10,7 +10,7 @@ public class CheckoutTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginGlitchUser()
+            .LoginStandardUser()
             .GetData();
 
         for (int i = 0; i < 3 && i < inventoryPage.UIInventoryItems.Count; i++)

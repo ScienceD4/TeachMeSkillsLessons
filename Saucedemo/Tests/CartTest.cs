@@ -11,7 +11,7 @@ public class CartTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginGlitchUser()
+            .LoginStandardUser()
             .GetData();
 
         var inventoryItems = new List<UIInventoryItem>();
@@ -26,7 +26,7 @@ public class CartTest : BaseTest
 
         Assert.Multiple(() =>
         {
-            Assert.That(cartItems.Count, Is.EqualTo(inventoryItems.Count));
+            Assert.That(cartItems, Has.Count.EqualTo(inventoryItems.Count));
 
             for (int i = 0; i < inventoryItems.Count; i++)
             {
@@ -43,7 +43,7 @@ public class CartTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginGlitchUser()
+            .LoginStandardUser()
             .GetData();
 
         var inventoryItems = new List<UIInventoryItem>();
@@ -65,7 +65,7 @@ public class CartTest : BaseTest
 
         Assert.Multiple(() =>
         {
-            Assert.That(cartItems.Count, Is.EqualTo(1));
+            Assert.That(cartItems, Has.Count.EqualTo(1));
 
             Assert.That(cartItems[0].Name, Is.EqualTo(inventoryItems[0].Name));
             Assert.That(cartItems[0].Description, Is.EqualTo(inventoryItems[0].Description));
