@@ -11,7 +11,7 @@ public class CartTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginStandardUser()
+            .LoginGlitchUser()
             .GetData();
 
         var inventoryItems = new List<UIInventoryItem>();
@@ -43,7 +43,7 @@ public class CartTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginStandardUser()
+            .LoginGlitchUser()
             .GetData();
 
         var inventoryItems = new List<UIInventoryItem>();

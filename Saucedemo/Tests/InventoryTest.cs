@@ -10,7 +10,7 @@ public class InventoryTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginStandardUser()
+            .LoginGlitchUser()
             .SelectSort(ProductSort.az)
             .GetData();
 
@@ -34,7 +34,7 @@ public class InventoryTest : BaseTest
     {
         var inventoryPage = new LoginPage(Driver)
             .Show()
-            .LoginStandardUser()
+            .LoginGlitchUser()
             .SelectSort(ProductSort.lohi)
             .GetData();
 

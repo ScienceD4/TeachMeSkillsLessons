@@ -16,6 +16,16 @@ public class LoginTest : BaseTest
     }
 
     [Test]
+    public void LoginGlitchUser()
+    {
+        var page = new LoginPage(Driver)
+            .Show()
+            .LoginGlitchUser();
+
+        Assert.That(page.IsExist(), Is.True);
+    }
+
+    [Test]
     public void LogoutStandardUser()
     {
         var page = new LoginPage(Driver)
