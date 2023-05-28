@@ -69,5 +69,4 @@ public class LoginPage : BasePage
     {
         return LoginButton.Displayed;
     }
-
 }

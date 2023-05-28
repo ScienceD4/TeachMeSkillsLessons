@@ -19,7 +19,6 @@ public class BurgerMenuForm : BasePage
     private IWebElement MenuButton => Driver.FindElement(menuButton);
     private IWebElement CloseButton => Driver.FindElement(closeButton);
 
-
     public BurgerMenuForm(IWebDriver driver) : base(driver)
     {
     }

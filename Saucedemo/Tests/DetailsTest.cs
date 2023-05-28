@@ -1,5 +1,4 @@
 ﻿using Saucedemo.PageObjects;
-using Saucedemo.PageObjects.Parameters;
 
 namespace Saucedemo.Tests;
 

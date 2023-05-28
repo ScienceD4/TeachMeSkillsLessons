@@ -3,6 +3,7 @@ using Saucedemo.Common;
 using Saucedemo.PageObjects.Parameters;
 
 namespace Saucedemo.PageObjects;
+
 public class DetailsPage : BasePage
 {
     private readonly By shoppingCart = By.CssSelector(".shopping_cart_link");
