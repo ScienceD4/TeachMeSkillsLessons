@@ -2,15 +2,16 @@
 
 namespace Saucedemo.PageObjects.Parameters;
 
-public class UIInventoryItem : UIProductItem
+public class UIDetailsItem : UIProductItem
 {
     private readonly By addButton = By.CssSelector(".btn.btn_primary.btn_small.btn_inventory");
     private readonly By removeButton = By.CssSelector(".btn.btn_secondary.btn_small");
-    private readonly IWebDriver driver;
 
-    public UIInventoryItem(IWebDriver driver, ISearchContext searchContext) : base(searchContext)
+    public UIDetailsItem(ISearchContext searchContext) : base(searchContext)
     {
-        this.driver = driver;
+        nameDiv = By.CssSelector(".inventory_details_name");
+        descriptionDiv = By.CssSelector(".inventory_details_desc");
+        priceDiv = By.CssSelector(".inventory_details_price");
     }
 
     public void AddToCart()
@@ -23,17 +24,10 @@ public class UIInventoryItem : UIProductItem
         searchContext.FindElement(removeButton).Click();
     }
 
-    public override UIInventoryItem GetData()
+    public override UIDetailsItem GetData()
     {
         base.GetData();
 
         return this;
-    }
-
-    public DetailsPage Details()
-    {
-        searchContext.FindElement(nameDiv).Click();
-
-        return new DetailsPage(driver);
     }
 }

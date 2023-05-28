@@ -20,8 +20,8 @@ public class InventoryPage : BasePage
 
     public InventoryPage(IWebDriver driver) : base(driver)
     {
-        BurgerMenu = new BurgerMenuForm(driver);
         Driver.WaitLoadPage(this, TIME_OUT_LOAD_PAGE);
+        BurgerMenu = new BurgerMenuForm(driver);
     }
 
     public CartPage OpenCart()
@@ -44,7 +44,7 @@ public class InventoryPage : BasePage
         {
             foreach (var item in InventoryItems)
             {
-                UIInventoryItems.Add(new UIInventoryItem(item).GetData());
+                UIInventoryItems.Add(new UIInventoryItem(Driver, item).GetData());
             }
         }
 
