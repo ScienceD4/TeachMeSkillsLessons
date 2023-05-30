@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 
 namespace Saucedemo.Core;
@@ -80,5 +81,12 @@ public class Browser
         webDriver.Manage().Window.Maximize();
 
         return webDriver;
+    }
+
+    public void ContextClickElement(IWebElement element)
+    {
+        new Actions(Driver)
+            .ContextClick(element)
+            .Perform();
     }
 }
