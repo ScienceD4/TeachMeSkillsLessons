@@ -23,18 +23,7 @@ public class Browser
     private Browser()
     {
         isHeadLess = bool.Parse(TestContext.Parameters.Get("HeadLess") ?? "false");
-
-        var options = new ChromeOptions();
-
-        if (isHeadLess)
-        {
-            options.AddArgument("--headless");
-        }
-
-        driver = new ChromeDriver(options);
-        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-        driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
-        driver.Manage().Window.Maximize();
+        driver = GetDriver();
     }
 
     public void NavigateToUrl(string url)
@@ -61,5 +50,35 @@ public class Browser
     {
         Driver?.Dispose();
         instance = null;
+    }
+
+    private IWebDriver GetDriver()
+    {
+        var browser = TestContext.Parameters.Get("Browser") ?? "chrome";
+
+        IWebDriver webDriver;
+
+        switch (browser)
+        {
+            case "chrome":
+                var options = new ChromeOptions();
+
+                if (isHeadLess)
+                {
+                    options.AddArgument("--headless");
+                }
+
+                webDriver = new ChromeDriver(options);
+                break;
+            default:
+                webDriver = new ChromeDriver();
+                break;
+        }
+
+        webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+        webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+        webDriver.Manage().Window.Maximize();
+
+        return webDriver;
     }
 }
