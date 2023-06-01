@@ -15,6 +15,12 @@ public class BaseTest
         if (true)
         {
             options.AddArgument("--headless");
+            options.AddUserProfilePreference("download.default_directory", Environment.CurrentDirectory + "\\download\\");
+
+            // Предназначение не известно!
+            options.AddUserProfilePreference("download.prompt_for_download", false);
+            options.AddUserProfilePreference("disable-popup-blocking", "true");
+
         }
 
         Driver = new ChromeDriver(options);
