@@ -14,7 +14,7 @@ public class BaseTest
 
         if (true)
         {
-            options.AddArgument("--headless");
+            //options.AddArgument("--headless");
             options.AddUserProfilePreference("download.default_directory", Environment.CurrentDirectory + "\\download\\");
 
             // Предназначение не известно!
