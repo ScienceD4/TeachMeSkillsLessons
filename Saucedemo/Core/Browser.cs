@@ -23,7 +23,7 @@ public class Browser
 
     private Browser()
     {
-        isHeadLess = bool.Parse(TestContext.Parameters.Get("HeadLess") ?? "false");
+        isHeadLess = TestContext.Parameters.Get("HeadLess", false);
         driver = GetDriver();
     }
 
@@ -55,7 +55,7 @@ public class Browser
 
     private IWebDriver GetDriver()
     {
-        var browser = TestContext.Parameters.Get("Browser") ?? "chrome";
+        var browser = TestContext.Parameters.Get("Browser", "chrome");
 
         IWebDriver webDriver;
 
