@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork10", "HomeWorks\Hom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork11NUnit", "HomeWorks\HomeWork11NUnit\HomeWork11NUnit.csproj", "{C21A0BC2-DBB4-4E90-8B30-763C4941A498}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork12", "HomeWorks\HomeWork12\HomeWork12.csproj", "{F05BE97E-6684-454C-845F-46E792D5F1C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork12+14", "HomeWorks\HomeWork12\HomeWork12+14.csproj", "{F05BE97E-6684-454C-845F-46E792D5F1C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saucedemo", "Saucedemo\Saucedemo.csproj", "{73399965-B9B4-4A35-AA65-AA9992E8D819}"
 EndProject
