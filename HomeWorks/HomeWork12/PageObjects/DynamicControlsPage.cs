@@ -6,11 +6,13 @@ namespace HomeWork12.PageObjects;
 public class DynamicControlsPage : BasePage
 {
     private IWebElement Link => Driver.FindElement(By.LinkText("Dynamic Controls"));
-    private IWebElement? CheckBox => Driver.FindElements(By.CssSelector("#checkbox>input")).FirstOrDefault();
+    private IWebElement CheckBox => Driver.FindElement(By.CssSelector("#checkbox>input"));
+    private bool CheckBoxExist => Driver.FindElements(By.CssSelector("#checkbox>input")).Count > 0;
     private IWebElement CheckBoxMessage => Driver.FindElement(By.CssSelector("#checkbox-example>#message"));
+    private IWebElement InputMessage => Driver.FindElement(By.CssSelector("#input-example>#message"));
     private IWebElement RemoveButton => Driver.FindElement(By.CssSelector("#checkbox-example>button"));
     private IWebElement EnableButton => Driver.FindElement(By.CssSelector("#input-example>button"));
-
+    private IWebElement Input => Driver.FindElement(By.CssSelector("#input-example>input"));
 
     public DynamicControlsPage(WebDriver driver) : base(driver)
     {
@@ -26,17 +28,22 @@ public class DynamicControlsPage : BasePage
 
     public bool CheckBoxIsChecked()
     {
-        return CheckBox?.Selected ?? false;
+        return CheckBox.Selected;
     }
 
     public bool CheckBoxIsExist()
     {
-        return CheckBox is not null;
+        return CheckBoxExist;
     }
 
     public string GetCheckBoxMessage()
     {
         return CheckBoxMessage.Text;
+    }
+
+    public string GetInputMessage()
+    {
+        return InputMessage.Text;
     }
 
     public DynamicControlsPage SetCheckBoxState(bool state)
@@ -45,6 +52,25 @@ public class DynamicControlsPage : BasePage
         {
             CheckBox.Click();
         }
+
+        return this;
+    }
+
+    public DynamicControlsPage RemoveCheckBox()
+    {
+        RemoveButton.Click();
+
+        return this;
+    }
+
+    public bool InputIsEnable()
+    {
+        return Input.Enabled;
+    }
+
+    public DynamicControlsPage EnableInput()
+    {
+        EnableButton.Click();
 
         return this;
     }
