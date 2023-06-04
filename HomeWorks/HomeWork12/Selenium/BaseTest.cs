@@ -10,7 +10,20 @@ public class BaseTest
     [SetUp]
     public virtual void SetUp()
     {
-        Driver = new ChromeDriver();
+        var options = new ChromeOptions();
+
+        if (true)
+        {
+            options.AddArgument("--headless");
+            options.AddUserProfilePreference("download.default_directory", Environment.CurrentDirectory + "\\download\\");
+
+            // Предназначение не известно!
+            options.AddUserProfilePreference("download.prompt_for_download", false);
+            options.AddUserProfilePreference("disable-popup-blocking", "true");
+
+        }
+
+        Driver = new ChromeDriver(options);
         Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         Driver.Manage().Window.Maximize();
     }
