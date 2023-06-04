@@ -28,10 +28,9 @@ public class FileDownloadPage : BasePage
 
         var index = random.Next(Files.Count);
         var file = Files[index];
-        var text = file.Text;
 
         file.Click();
 
-        return text;
+        return file.Text;
     }
 }

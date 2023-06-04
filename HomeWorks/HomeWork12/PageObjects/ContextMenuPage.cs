@@ -24,9 +24,9 @@ public class ContextMenuPage : BasePage
     public string RightClickContextBoxAndGetText()
     {
         ContextClickElement(ContextBox);
-        var a = Driver.SwitchTo().Alert();
-        var text = a.Text;
-        a.Accept();
+        var alert = Driver.SwitchTo().Alert();
+        var text = alert.Text;
+        alert.Accept();
 
         return text;
     }
