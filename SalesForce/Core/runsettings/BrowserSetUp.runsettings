@@ -4,7 +4,7 @@
 	<TestRunParameters>
 		<Parameter name="HeadLess" value="false"/>
 		<Parameter name="Browser" value="chrome"/>
-		<Parameter name="Login" value="dima@qrwq.com"/>
+		<Parameter name="Login" value="dima@companyy.com"/>
 		<Parameter name="Password" value=""/>
 	</TestRunParameters>
 </RunSettings>

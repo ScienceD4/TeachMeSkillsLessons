@@ -6,9 +6,9 @@ namespace Common;
 
 public static class WaitHelper
 {
-    public static void Until(int time, Func<bool> predicate)
+    public static void Until(int timeMilliseconds, Func<bool> predicate)
     {
-        var timeout = DateTime.Now.AddMilliseconds(time);
+        var timeout = DateTime.Now.AddMilliseconds(timeMilliseconds);
 
         while (DateTime.Now < timeout)
         {
@@ -17,8 +17,8 @@ public static class WaitHelper
         }
     }
 
-    public static void WaitLoadPage(this IWebDriver driver, Predicate<IWebDriver> predicate, int timeout)
+    public static TResult WaitLoad<TResult>(this IWebDriver driver, Func<IWebDriver, TResult> condition, int timeout)
     {
-        new WebDriverWait(driver, TimeSpan.FromMilliseconds(timeout)).Until(d => predicate?.Invoke(d));
+        return new WebDriverWait(driver, TimeSpan.FromMilliseconds(timeout)).Until(condition);
     }
 }

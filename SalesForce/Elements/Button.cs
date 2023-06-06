@@ -1,4 +1,6 @@
-﻿namespace SalesForce.Elements;
+﻿using Core;
+
+namespace SalesForce.Elements;
 
 public class Button : BaseElement
 {
@@ -9,5 +11,9 @@ public class Button : BaseElement
     public void Click()
     {
         WebElement.Click();
+    }
+    public void ClickByJava()
+    {
+        Browser.Instance.ExecuteScript("arguments[0].click()", WebElement);
     }
 }
