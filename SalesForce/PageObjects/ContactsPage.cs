@@ -4,7 +4,7 @@ namespace SalesForce.PageObjects;
 
 public class ContactsPage : BasePage
 {
-    private Button New { get; set; } = new Button(By.XPath("//*[@title='New']"));
+    private Button New { get; set; } = new (By.XPath("//*[@title='New']"));
 
     public NewContactForm CreateNew()
     {

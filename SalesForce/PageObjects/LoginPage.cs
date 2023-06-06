@@ -10,9 +10,9 @@ public class LoginPage : BasePage
     private readonly string USER_NAME = TestContext.Parameters.Get("Login");
     private readonly string PASSWORD = TestContext.Parameters.Get("Password");
 
-    private Input UserName { get; set; } = new Input(By.Id("username"));
-    private Input Password { get; set; } = new Input(By.Id("password"));
-    private Button Login { get; set; } = new Button(By.Id("Login"));
+    private Input UserName { get; set; } = new (By.Id("username"));
+    private Input Password { get; set; } = new (By.Id("password"));
+    private Button Login { get; set; } = new (By.Id("Login"));
 
 
     public LoginPage Show()
@@ -28,15 +28,6 @@ public class LoginPage : BasePage
         Password.FillIn(PASSWORD);
         Login.Click();
 
-        var page = new HomePage();
-
-        if (page.GetAppName() == "Sales")
-        {
-            return page;
-        }
-        else
-        {
-            return page.GoToSales();
-        }
+        return new HomePage().GoToSales();
     }
 }
