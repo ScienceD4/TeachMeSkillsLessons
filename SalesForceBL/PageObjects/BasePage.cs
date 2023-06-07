@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-
-namespace SalesForce.PageObjects;
+﻿namespace SalesForceBL.PageObjects;
 
 public abstract class BasePage
 {

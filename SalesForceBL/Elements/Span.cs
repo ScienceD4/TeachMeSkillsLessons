@@ -1,4 +1,4 @@
-﻿namespace SalesForce.Elements;
+﻿namespace SalesForceBL.Elements;
 
 public class Span : BaseElement
 {

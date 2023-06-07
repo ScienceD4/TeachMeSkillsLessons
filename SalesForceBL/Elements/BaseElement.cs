@@ -1,8 +1,7 @@
 ﻿using Common;
 using Core;
-using OpenQA.Selenium;
 
-namespace SalesForce.Elements;
+namespace SalesForceBL.Elements;
 
 public abstract class BaseElement
 {

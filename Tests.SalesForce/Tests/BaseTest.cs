@@ -1,6 +1,6 @@
 ﻿using Core;
 
-namespace SalesForce.Tests;
+namespace Tests.SalesForce.Tests;
 
 public class BaseTest
 {

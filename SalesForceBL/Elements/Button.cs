@@ -1,7 +1,7 @@
 ﻿using Core;
-using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
-namespace SalesForce.Elements;
+namespace SalesForceBL.Elements;
 
 public class Button : BaseElement
 {
@@ -16,5 +16,14 @@ public class Button : BaseElement
     public void ClickByJava()
     {
         Browser.Instance.ExecuteScript("arguments[0].click()", WebElement);
+    }
+
+    public void ClickWithActions()
+    {
+        new Actions(Driver)
+            .MoveToElement(WebElement)
+            .Click()
+            .Build()
+            .Perform();
     }
 }

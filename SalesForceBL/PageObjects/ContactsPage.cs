@@ -1,11 +1,20 @@
 ﻿using OpenQA.Selenium;
-using SalesForce.Elements;
+using SalesForceBL.Elements;
+using SalesForceBL.PageObjects.ModelParams;
 
-namespace SalesForce.PageObjects;
+namespace SalesForceBL.PageObjects;
 
 public class ContactsPage : BasePage
 {
     private Button New { get; set; } = new (By.XPath("//*[@title='New']"));
+    private Table ContactsTable { get; set; } = new(By.XPath("//table"));
+
+    public ContactsPage GetData()
+    {
+        ContactsTable.GetData();
+
+        return this;
+    }
 
     public NewContactForm CreateNew()
     {
@@ -17,16 +26,14 @@ public class ContactsPage : BasePage
 
 public class NewContactForm : BasePage
 {
-    //private static readonly string cssLayoutName = "[data-input-element-id='input-field']";
-
     private Input FirstName { get; set; } = new Input(By.XPath("//input[@name='firstName']"));
     private Input LastName { get; set; } = new Input(By.XPath("//input[@name='lastName']"));
     private Button Save { get; set; } = new Button(By.XPath("//button[@name='SaveEdit']"));
 
-    public void Create()
+    public void Create(NewContactFormParams formParams)
     {
-        FirstName.FillIn("dimas");
-        LastName.FillIn("ddddd");
+        FirstName.FillIn(formParams.FirstName);
+        LastName.FillIn(formParams.LastName);
         Save.Click();
     }
 }

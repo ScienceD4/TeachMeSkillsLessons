@@ -1,17 +1,16 @@
 ﻿using Common;
-using OpenQA.Selenium;
-using SalesForce.Elements;
+using SalesForceBL.Elements;
 
-namespace SalesForce.PageObjects;
+namespace SalesForceBL.PageObjects;
 
 public class HomePage : BasePage
 {
     private Span AppNameSpan { get; set; } = new (By.XPath("//span[contains(@class, 'appName')]"));
     private Button AppButton { get; set; } = new (By.XPath("//*[@class='slds-button slds-show']"));
     private Button NavigateMenu { get; set; } = new (By.CssSelector(".navMenu [title='Show Navigation Menu']"));
-    private Button Contacts { get; set; } = new (By.XPath("//*[@data-id='Contact']//span"));
-    private Button HomeTab { get; set; } = new (By.XPath("//*[@data-id='home']//span"));
-    private Button Accounts { get; set; } = new (By.XPath("//*[@data-id='Account']//span"));
+    private Button Contacts { get; set; } = new (By.XPath("//*[@data-id='Contact']"));
+    private Button HomeTab { get; set; } = new (By.XPath("//*[@data-id='home']"));
+    private Button Accounts { get; set; } = new (By.XPath("//*[@data-id='Account']"));
 
     public HomePage()
     {
@@ -20,7 +19,7 @@ public class HomePage : BasePage
 
     public ContactsPage OpenContacts()
     {
-        Contacts.ClickByJava();
+        Contacts.ClickWithActions();
 
         return new ContactsPage();
     }
@@ -32,7 +31,7 @@ public class HomePage : BasePage
 
     public AccountsPage OpenAccounts()
     {
-        Accounts.Click();
+        Accounts.ClickWithActions();
 
         return new AccountsPage();
     }

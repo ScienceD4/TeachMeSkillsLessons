@@ -1,10 +1,7 @@
-﻿using Common;
-using Core.Settings;
-using OpenQA.Selenium;
-using SalesForce.Elements;
-using System;
+﻿using Core.Settings;
+using SalesForceBL.Elements;
 
-namespace SalesForce.PageObjects;
+namespace SalesForceBL.PageObjects;
 
 public class LoginPage : BasePage
 {
@@ -19,6 +16,7 @@ public class LoginPage : BasePage
 
     public LoginPage Show()
     {
+        Driver.Navigate().Refresh();
         Driver.Navigate().GoToUrl(url);
 
         return this;

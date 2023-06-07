@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-
-namespace SalesForce.Elements;
+﻿namespace SalesForceBL.Elements;
 
 public class Input : BaseElement
 {
