@@ -10,7 +10,8 @@ public class Browser
     private static Browser? instance;
     private readonly IWebDriver driver;
 
-    public IWebDriver Driver { get { return driver; } }
+    public IWebDriver Driver
+    { get { return driver; } }
 
     public static Browser Instance
     {
@@ -67,8 +68,13 @@ public class Browser
                     options.AddArgument("--headless");
                 }
 
+                options.AddArgument("--start-maximized");
+                options.AddArgument("--no-sandbox");
+                options.AddArgument("--disable-extensions");
+
                 webDriver = new ChromeDriver(options);
                 break;
+
             default:
                 webDriver = new ChromeDriver();
                 break;

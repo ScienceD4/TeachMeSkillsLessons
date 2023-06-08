@@ -6,4 +6,5 @@ public class SalesForceSettings : IConfiguration
 
     public string Login { get; set; }
     public string Password { get; set; }
+    public string Url { get; set; }
 }

@@ -5,14 +5,13 @@ namespace SalesForceBL.PageObjects;
 
 public class LoginPage : BasePage
 {
-    private readonly string url = "https://companyy2-dev-ed.develop.lightning.force.com/lightning/page/home";
+    private readonly string url = Settings.SalesForce.Url;
     private readonly string USER_NAME = Settings.SalesForce.Login;
     private readonly string PASSWORD = Settings.SalesForce.Password;
 
-    private Input UserName { get; set; } = new (By.Id("username"));
-    private Input Password { get; set; } = new (By.Id("password"));
-    private Button Login { get; set; } = new (By.Id("Login"));
-
+    private Input UserName { get; set; } = new(By.Id("username"));
+    private Input Password { get; set; } = new(By.Id("password"));
+    private Button Login { get; set; } = new(By.Id("Login"));
 
     public LoginPage Show()
     {

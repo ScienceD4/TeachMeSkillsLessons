@@ -1,13 +1,11 @@
-﻿using OpenQA.Selenium;
-using SalesForceBL.Elements;
+﻿using SalesForceBL.Elements;
 using SalesForceBL.PageObjects.ModelParams;
 
 namespace SalesForceBL.PageObjects;
 
-public class ContactsPage : BasePage
+public class ContactsPage : UsersBasePage
 {
-    private Button New { get; set; } = new (By.XPath("//*[@title='New']"));
-    private Table ContactsTable { get; set; } = new(By.XPath("//table"));
+    public Table ContactsTable => UsersTable;
 
     public ContactsPage GetData()
     {
@@ -22,6 +20,23 @@ public class ContactsPage : BasePage
 
         return new NewContactForm();
     }
+
+    public NewContactForm EditItem()
+    {
+        Action.ClickWithActions();
+        Edit.Click();
+
+        return new NewContactForm();
+    }
+
+    public NewContactForm DeleteItem()
+    {
+        Action.ClickWithActions();
+        Delete.Click();
+        ConfirmDelete.Click();
+
+        return new NewContactForm();
+    }
 }
 
 public class NewContactForm : BasePage
@@ -30,7 +45,7 @@ public class NewContactForm : BasePage
     private Input LastName { get; set; } = new Input(By.XPath("//input[@name='lastName']"));
     private Button Save { get; set; } = new Button(By.XPath("//button[@name='SaveEdit']"));
 
-    public void Create(NewContactFormParams formParams)
+    public void FillIn(NewContactFormParams formParams)
     {
         FirstName.FillIn(formParams.FirstName);
         LastName.FillIn(formParams.LastName);

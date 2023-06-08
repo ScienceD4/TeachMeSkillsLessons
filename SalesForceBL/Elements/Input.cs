@@ -10,6 +10,7 @@ public class Input : BaseElement
     {
         if (string.IsNullOrEmpty(text)) return;
 
+        WebElement.Clear();
         WebElement.SendKeys(text);
     }
 }

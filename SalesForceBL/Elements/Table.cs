@@ -1,6 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-
-namespace SalesForceBL.Elements;
+﻿namespace SalesForceBL.Elements;
 
 public class Table : BaseElement
 {
@@ -25,7 +23,7 @@ public class Table : BaseElement
     private void Parse()
     {
         Columns = WebElement.FindElements(locatorCol)
-            .Select((e,i) =>
+            .Select((e, i) =>
                 {
                     var text = e.Text.Trim().Replace("\r", "").Replace("\n", "");
                     return string.IsNullOrWhiteSpace(text) ? i.ToString() : text;
