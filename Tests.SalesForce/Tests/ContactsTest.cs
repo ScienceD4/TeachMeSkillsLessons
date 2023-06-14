@@ -1,4 +1,5 @@
-﻿using Core.Common;
+﻿using Core;
+using Core.Common;
 using SalesForceBL.PageObjects.ModelParams;
 
 namespace Tests.SalesForce.Tests;
@@ -14,6 +15,8 @@ public class ContactsTest : BaseTest
             FirstName = DataGenerator.GetRandomFirstName(),
             LastName = DataGenerator.GetRandomLastName(),
         };
+
+        LogSession.CurrentSession.Debug($"Create contact {contactParams.FirstName} {contactParams.LastName}");
 
         new LoginPage()
             .Show()

@@ -1,4 +1,4 @@
-﻿namespace Core.Settings.Files;
+﻿namespace Core.Settings;
 
 public class SalesForceSettings : IConfiguration
 {
