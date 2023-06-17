@@ -20,7 +20,7 @@ public class AccountsTest : BaseTest
             .LogIn()
             .OpenAccounts()
             .CreateNew()
-            .Create(accountParams);
+            .FillIn(accountParams);
 
         // Пока не работает((
         //var table = new HomePage().OpenAccounts().GetData().AccountsTable;
@@ -32,4 +32,30 @@ public class AccountsTest : BaseTest
         //Assert.That(isContains, Is.True);
     }
 
+    [Test]
+    public void EditAccount()
+    {
+        var accountParams = new NewAccountFormParams
+        {
+            AccountName = DataGenerator.GetRandomFullName(),
+            Phone = DataGenerator.GetRandomPhone(),
+        };
+
+        new LoginPage()
+            .Show()
+            .LogIn()
+            .OpenAccounts()
+            .EditItem()
+            .FillIn(accountParams);
+    }
+
+    [Test]
+    public void DeleteAccount()
+    {
+        new LoginPage()
+            .Show()
+            .LogIn()
+            .OpenAccounts()
+            .DeleteItem();
+    }
 }

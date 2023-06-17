@@ -4,11 +4,9 @@ using SalesForceBL.PageObjects.ModelParams;
 
 namespace SalesForceBL.PageObjects;
 
-public class AccountsPage : BasePage
+public class AccountsPage : UsersBasePage
 {
-    private Button New { get; set; } = new(By.XPath("//*[@title='New']"));
-
-    public Table AccountsTable { get; set; } = new(By.XPath("//table"));
+    public Table AccountsTable => UsersTable;
 
     public AccountsPage GetData()
     {
@@ -24,6 +22,30 @@ public class AccountsPage : BasePage
 
         return new NewAccountForm();
     }
+
+    public AccountsPage RefreshTable()
+    {
+        Refresh.Click();
+
+        return this;
+    }
+
+    public NewAccountForm EditItem()
+    {
+        Action.ClickWithActions();
+        Edit.Click();
+
+        return new NewAccountForm();
+    }
+
+    public NewAccountForm DeleteItem()
+    {
+        Action.ClickWithActions();
+        Delete.Click();
+        ConfirmDelete.Click();
+
+        return new NewAccountForm();
+    }
 }
 
 public class NewAccountForm : BasePage
@@ -32,7 +54,7 @@ public class NewAccountForm : BasePage
     private Input Phone { get; set; } = new Input(By.XPath("//input[@name='Phone']"));
     private Button Save { get; set; } = new Button(By.XPath("//button[@name='SaveEdit']"));
 
-    public void Create(NewAccountFormParams formParams)
+    public void FillIn(NewAccountFormParams formParams)
     {
         AccountName.FillIn(formParams.AccountName);
         Phone.FillIn(formParams.Phone);

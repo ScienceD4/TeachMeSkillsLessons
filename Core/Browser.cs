@@ -7,18 +7,12 @@ namespace Core;
 
 public class Browser
 {
-    private static Browser? instance;
+    private static readonly ThreadLocal<Browser> browserInstances = new();
     private readonly IWebDriver driver;
 
-    public IWebDriver Driver { get { return driver; } }
+    public IWebDriver Driver => driver;
 
-    public static Browser Instance
-    {
-        get
-        {
-            return instance ??= new Browser();
-        }
-    }
+    public static Browser Instance => browserInstances.Value ??= new Browser();
 
     private Browser()
     {
@@ -48,10 +42,10 @@ public class Browser
     public void CloseBrowser()
     {
         Driver?.Dispose();
-        instance = null;
+        browserInstances.Value = null;
     }
 
-    private IWebDriver GetDriver()
+    private static IWebDriver GetDriver()
     {
         var browser = Settings.Settings.Browser.Type;
 
@@ -67,8 +61,12 @@ public class Browser
                     options.AddArgument("--headless");
                 }
 
+                options.AddArgument("--no-sandbox");
+                options.AddArgument("--disable-extensions");
+
                 webDriver = new ChromeDriver(options);
                 break;
+
             default:
                 webDriver = new ChromeDriver();
                 break;
@@ -76,8 +74,7 @@ public class Browser
 
         webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Settings.Settings.Browser.TimeOutSeconds);
         webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(Settings.Settings.Browser.TimeOutSeconds * 3);
-        webDriver.Manage().Window.Maximize();
-        webDriver.Navigate().Refresh();
+        webDriver.Manage().Window.Size = new System.Drawing.Size(1920, 1080);
 
         return webDriver;
     }

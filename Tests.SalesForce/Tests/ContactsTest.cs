@@ -1,4 +1,5 @@
-﻿using Core.Common;
+﻿using Core;
+using Core.Common;
 using SalesForceBL.PageObjects.ModelParams;
 
 namespace Tests.SalesForce.Tests;
@@ -15,13 +16,40 @@ public class ContactsTest : BaseTest
             LastName = DataGenerator.GetRandomLastName(),
         };
 
+        LogSession.CurrentSession.Debug($"Create contact {contactParams.FirstName} {contactParams.LastName}");
 
         new LoginPage()
             .Show()
             .LogIn()
             .OpenContacts()
             .CreateNew()
-            .Create(contactParams);
+            .FillIn(contactParams);
     }
 
+    [Test]
+    public void EditContact()
+    {
+        var accountParams = new NewContactFormParams
+        {
+            FirstName = DataGenerator.GetRandomFirstName(),
+            LastName = DataGenerator.GetRandomLastName(),
+        };
+
+        new LoginPage()
+            .Show()
+            .LogIn()
+            .OpenContacts()
+            .EditItem()
+            .FillIn(accountParams);
+    }
+
+    [Test]
+    public void DeleteContact()
+    {
+        new LoginPage()
+            .Show()
+            .LogIn()
+            .OpenContacts()
+            .DeleteItem();
+    }
 }
