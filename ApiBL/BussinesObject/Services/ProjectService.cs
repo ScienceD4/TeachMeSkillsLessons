@@ -1,4 +1,5 @@
-﻿using ApiTests.BussinesObject.Models;
+﻿using ApiBL.BussinesObject.Clients;
+using ApiTests.BussinesObject.Models;
 using ApiTests.Core;
 using Newtonsoft.Json;
 using RestSharp;
@@ -7,12 +8,10 @@ namespace ApiTests.BussinesObject.Services;
 
 public class ProjectService : BaseService
 {
-    private const string url = "https://api.qase.io/v1/";
-
     private string ProjectByCodeEndpoint = "project/{code}";
     private string ProjectEndpoint = "project";
 
-    public ProjectService(bool withAuth = true) : base(withAuth, new BaseApiClient(url))
+    public ProjectService(bool withAuth = true) : base(withAuth, new QaseAppClient())
     {
     }
 
