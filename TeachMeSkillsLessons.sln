@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesForceBL", "SalesForceB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SauceDemoBL", "SauceDemoBL\SauceDemoBL.csproj", "{06E9F833-C9E6-417A-8AE0-8ABD710E6334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTests", "ApiTests\ApiTests.csproj", "{99845F82-39CE-429D-A5EA-250BA08410BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTests", "ApiTests\ApiTests.csproj", "{99845F82-39CE-429D-A5EA-250BA08410BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBL", "ApiBL\ApiBL.csproj", "{86C74301-A4CA-42EE-B3BE-0794336B4DC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +121,10 @@ Global
 		{99845F82-39CE-429D-A5EA-250BA08410BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99845F82-39CE-429D-A5EA-250BA08410BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99845F82-39CE-429D-A5EA-250BA08410BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C74301-A4CA-42EE-B3BE-0794336B4DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C74301-A4CA-42EE-B3BE-0794336B4DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C74301-A4CA-42EE-B3BE-0794336B4DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C74301-A4CA-42EE-B3BE-0794336B4DC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
