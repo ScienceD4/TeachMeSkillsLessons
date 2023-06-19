@@ -39,9 +39,9 @@ public class ProjectTest : BaseApiTest
             Title = "Test_" + projectCode,
         };
 
-        var project = ProjectBL.CreateProject(projectReq);
+        var newProjectCode = ProjectBL.CreateProject(projectReq);
 
-        Assert.That(project.Code, Is.EqualTo(projectCode));
+        Assert.That(newProjectCode, Is.EqualTo(projectCode));
     }
 
     [Test]
@@ -68,12 +68,20 @@ public class ProjectTest : BaseApiTest
     }
 
     [Test]
-    public void DeleteProject()
+    public void CreateAndDeleteProject()
     {
-        var projectCode = "AQA02";
+        var projectCode = "QA" + DateTime.Now.ToString("ddHHmmss");
 
-        var res = ProjectBL.DeleteProjectByCode(projectCode);
+        var projectReq = new CreateProjectRequest
+        {
+            Code = projectCode,
+            Title = "Test_" + projectCode,
+        };
 
+        var newProjectCode = ProjectBL.CreateProject(projectReq);
+        Assert.That(newProjectCode, Is.EqualTo(projectCode));
+
+        var res = ProjectBL.DeleteProjectByCode(newProjectCode);
         Assert.Multiple(() =>
         {
             Assert.That(res.Status, Is.True);
@@ -93,10 +101,10 @@ public class ProjectTest : BaseApiTest
             Title = projectTitle,
         };
 
-        var project = ProjectBL.CreateProject(projectReq);
-        Assert.That(project.Code, Is.EqualTo(projectCode));
+        var newProjectCode = ProjectBL.CreateProject(projectReq);
+        Assert.That(newProjectCode, Is.EqualTo(projectCode));
 
-        project = ProjectBL.GetProjectByCode(projectCode);
+        var project = ProjectBL.GetProjectByCode(projectCode);
         Assert.Multiple(() =>
         {
             Assert.That(project.Code, Is.EqualTo(projectCode));

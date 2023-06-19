@@ -2,13 +2,13 @@
 
 namespace ApiBL.BussinesObject.Models;
 
-public class CreateCaseRequest
+public class CaseBase
 {
+    [JsonProperty("id", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public int? Id { get; set; }
+
     [JsonProperty("attachments", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public List<string>? Attachments { get; set; }
-
-    [JsonProperty("tags", DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public List<string>? Tags { get; set; }
 
     [JsonProperty("title")]
     public string? Title { get; set; }
@@ -41,8 +41,31 @@ public class CreateCaseRequest
     public DateTime? UpdatedAt { get; set; }
 }
 
+public class CaseCreateModel : CaseBase
+{
+
+    [JsonProperty("tags", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public List<string>? Tags { get; set; }
+}
+
+public class Case : CaseBase
+{
+
+    [JsonProperty("tags", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public List<Tag>? Tags { get; set; }
+}
+
 public class CreateCaseBulkRequest
 {
     [JsonProperty("cases")]
-    public List<CreateCaseRequest>? Cases { get; set; }
+    public List<CaseCreateModel>? Cases { get; set; }
+}
+
+public class Tag
+{
+    [JsonProperty("title", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public string Title { get; set; }
+
+    [JsonProperty("internal_id", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public int InternalId { get; set; }
 }

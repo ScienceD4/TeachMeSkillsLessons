@@ -33,10 +33,22 @@ public class CaseService : BaseService
         return ApiClient.Execute(request);
     }
 
-    public RestResponse CreateCase(CreateCaseRequest caseRequest, string projectCode)
+    public RestResponse CreateCase(CaseCreateModel caseModel, string projectCode)
     {
         var request = new RestRequest(CasesByCodeEndpoint, Method.Post).AddUrlSegment("code", projectCode);
-        var body = JsonConvert.SerializeObject(caseRequest);
+        var body = JsonConvert.SerializeObject(caseModel);
+        request.AddBody(body);
+
+        return ApiClient.Execute(request);
+    }
+
+    public RestResponse UpdateCase(CaseCreateModel caseModel, string projectCode, int id)
+    {
+        var request = new RestRequest(CaseByIdEndpoint, Method.Patch)
+            .AddUrlSegment("code", projectCode)
+            .AddUrlSegment("id", id);
+
+        var body = JsonConvert.SerializeObject(caseModel);
         request.AddBody(body);
 
         return ApiClient.Execute(request);
