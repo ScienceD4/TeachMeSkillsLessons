@@ -1,12 +1,8 @@
 ﻿using ApiTests.BussinesObject.Models;
 using ApiTests.BussinesObject.Services;
-using Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Allure.Attributes;
-using NUnit.Framework;
-using RestSharp;
-using System.Net;
 
 namespace ApiBL.BussinesLogic;
 

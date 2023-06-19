@@ -4,13 +4,11 @@ using ApiTests.BussinesObject.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Allure.Attributes;
-using RestSharp;
 
 namespace ApiBL.BussinesLogic;
 
 public static class CaseBL
 {
-
     [AllureStep]
     public static List<Case> GetAllCasesByProjectCode(string code)
     {

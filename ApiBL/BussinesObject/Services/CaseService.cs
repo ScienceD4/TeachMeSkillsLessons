@@ -1,6 +1,5 @@
 ﻿using ApiBL.BussinesObject.Clients;
 using ApiBL.BussinesObject.Models;
-using ApiTests.BussinesObject.Models;
 using ApiTests.Core;
 using Newtonsoft.Json;
 using RestSharp;
@@ -13,7 +12,7 @@ public class CaseService : BaseService
     private string CasesBulkEndpoint = "case/{code}/bulk";
     private string CaseByIdEndpoint = "case/{code}/{id}";
 
-    public CaseService(bool withAuth = true) : base(withAuth, new QaseAppClient())
+    public CaseService(bool withAuth = true) : base(new QaseAppClient(withAuth))
     {
     }
 

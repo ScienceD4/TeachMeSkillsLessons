@@ -43,14 +43,12 @@ public class CaseBase
 
 public class CaseCreateModel : CaseBase
 {
-
     [JsonProperty("tags", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public List<string>? Tags { get; set; }
 }
 
 public class Case : CaseBase
 {
-
     [JsonProperty("tags", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public List<Tag>? Tags { get; set; }
 }

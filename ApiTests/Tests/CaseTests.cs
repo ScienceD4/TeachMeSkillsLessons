@@ -1,6 +1,5 @@
 ﻿using ApiBL.BussinesLogic;
 using ApiBL.BussinesObject.Models;
-using System.ComponentModel.DataAnnotations;
 
 namespace ApiTests.Tests;
 
@@ -94,10 +93,10 @@ public class CaseTests : BaseApiTest
 
         var caseId = CaseBL.CreateCase(
             new CaseCreateModel
-                {
-                    Title = title,
-                    Description = description,
-                    Tags = CaseTags
+            {
+                Title = title,
+                Description = description,
+                Tags = CaseTags
             },
             mainProjectCode);
         Assert.That(caseId, Is.GreaterThan(0));

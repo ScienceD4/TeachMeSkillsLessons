@@ -11,7 +11,7 @@ public class ProjectService : BaseService
     private string ProjectByCodeEndpoint = "project/{code}";
     private string ProjectEndpoint = "project";
 
-    public ProjectService(bool withAuth = true) : base(withAuth, new QaseAppClient())
+    public ProjectService(bool withAuth = true) : base(new QaseAppClient(withAuth))
     {
     }
 
