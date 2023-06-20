@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Core;
+using RestSharp;
 
 namespace ApiTests.Core;
 
@@ -25,6 +26,12 @@ public class BaseApiClient
 
     public RestResponse Execute(RestRequest request)
     {
-        return client.Execute(request);
+        LogSession.CurrentSession.Debug($"Resource: '{request.Resource}' Method: '{request.Method}' " +
+            $"{request.Parameters.FirstOrDefault(p => p.Type == ParameterType.RequestBody)}");
+
+        var response = client.Execute(request);
+        LogSession.CurrentSession.Debug($"StatusCode '{response.StatusCode}'. Content: {response.Content}");
+
+        return response;
     }
 }
