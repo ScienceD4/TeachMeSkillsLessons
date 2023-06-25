@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'Agent01'
+  name: 'agents'
 
 steps:
 - task: NuGetCommand@2
