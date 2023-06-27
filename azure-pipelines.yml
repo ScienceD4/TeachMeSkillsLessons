@@ -21,3 +21,4 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: 'test'
+    arguments: 'ApiTests'
