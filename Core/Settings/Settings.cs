@@ -9,6 +9,7 @@ public static class Settings
 
     public static BrowserSettings Browser { get; } = BindConfiguration<BrowserSettings>();
     public static SalesForceSettings SalesForce { get; } = BindConfiguration<SalesForceSettings>();
+    public static ApiSettings API { get; } = BindConfiguration<ApiSettings>();
 
     private static T BindConfiguration<T>() where T : IConfiguration, new()
     {
