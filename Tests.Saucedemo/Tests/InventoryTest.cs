@@ -6,14 +6,15 @@ public class InventoryTest : BaseTest
     [Test]
     public void SortSelectTitleTest()
     {
-        var inventoryPage = new LoginPage(Driver)
+        var inventoryPage = new LoginPage()
             .Show()
             .LoginStandardUser()
             .SelectSort(ProductSort.az)
             .GetData();
 
-        var inventoryNameBefore = inventoryPage.UIInventoryItems.Select(x => x.Name).ToList();
-        bool isSortedBefore = inventoryNameBefore.SequenceEqual(inventoryNameBefore.OrderBy(x => x));
+        var inventoryNameBefore = inventoryPage.UIInventoryItems?.Select(x => x.Name).ToList() ??
+            throw new Exception($"'{nameof(inventoryPage.UIInventoryItems)}' is null");
+        bool isSortedBefore = inventoryNameBefore!.SequenceEqual(inventoryNameBefore!.OrderBy(x => x));
 
         inventoryPage.SelectSort(ProductSort.za).GetData();
 
@@ -30,13 +31,15 @@ public class InventoryTest : BaseTest
     [Test]
     public void SortSelectPriceTest()
     {
-        var inventoryPage = new LoginPage(Driver)
+        var inventoryPage = new LoginPage()
             .Show()
             .LoginStandardUser()
             .SelectSort(ProductSort.lohi)
             .GetData();
 
-        var inventoryPriceBefore = inventoryPage.UIInventoryItems.Select(x => x.Price).ToList();
+        var inventoryPriceBefore = inventoryPage.UIInventoryItems?.Select(x => x.Price).ToList() ??
+            throw new Exception($"'{nameof(inventoryPage.UIInventoryItems)}' is null");
+
         bool isSortedBefore = inventoryPriceBefore.SequenceEqual(inventoryPriceBefore.OrderBy(x => x));
 
         inventoryPage.SelectSort(ProductSort.hilo).GetData();

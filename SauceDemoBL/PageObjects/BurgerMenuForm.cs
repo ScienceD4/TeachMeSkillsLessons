@@ -18,7 +18,7 @@ public class BurgerMenuForm : BasePage
     private IWebElement MenuButton => Driver.FindElement(menuButton);
     private IWebElement CloseButton => Driver.FindElement(closeButton);
 
-    public BurgerMenuForm(IWebDriver driver) : base(driver)
+    public BurgerMenuForm() : base()
     {
     }
 
@@ -34,7 +34,7 @@ public class BurgerMenuForm : BasePage
     {
         LogoutLink.Click();
 
-        return new LoginPage(Driver);
+        return new LoginPage();
     }
 
     public override bool IsExist()

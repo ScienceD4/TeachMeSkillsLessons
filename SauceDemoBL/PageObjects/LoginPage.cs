@@ -20,7 +20,7 @@ public class LoginPage : BasePage
     private IWebElement UserPassInput => Driver.FindElement(userPassInput);
     private IWebElement ErrorMessage => Driver.FindElement(errorMessage);
 
-    public LoginPage(IWebDriver driver) : base(driver)
+    public LoginPage() : base()
     {
     }
 
@@ -38,7 +38,7 @@ public class LoginPage : BasePage
         UserPassInput.SendKeys(PASSWORD);
         LoginButton.Click();
 
-        return new InventoryPage(Driver);
+        return new InventoryPage();
     }
 
     public InventoryPage LoginGlitchUser()
@@ -47,7 +47,7 @@ public class LoginPage : BasePage
         UserPassInput.SendKeys(PASSWORD);
         LoginButton.Click();
 
-        return new InventoryPage(Driver);
+        return new InventoryPage();
     }
 
     public LoginPage LoginLockedUser()

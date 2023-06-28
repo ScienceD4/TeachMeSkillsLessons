@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Core;
+using OpenQA.Selenium;
 
 namespace Saucedemo.PageObjects.Parameters;
 
@@ -6,11 +7,9 @@ public class UIInventoryItem : UIProductItem
 {
     private readonly By addButton = By.CssSelector(".btn.btn_primary.btn_small.btn_inventory");
     private readonly By removeButton = By.CssSelector(".btn.btn_secondary.btn_small");
-    private readonly IWebDriver driver;
 
-    public UIInventoryItem(IWebDriver driver, ISearchContext searchContext) : base(searchContext)
+    public UIInventoryItem(ISearchContext searchContext) : base(searchContext)
     {
-        this.driver = driver;
     }
 
     public void AddToCart()
@@ -34,6 +33,6 @@ public class UIInventoryItem : UIProductItem
     {
         searchContext.FindElement(nameDiv).Click();
 
-        return new DetailsPage(driver);
+        return new DetailsPage();
     }
 }
