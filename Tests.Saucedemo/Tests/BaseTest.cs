@@ -1,9 +1,11 @@
 ﻿using Allure.Net.Commons;
 using Core;
+using NUnit.Allure.Core;
 using OpenQA.Selenium.Support.Extensions;
 
 namespace Saucedemo.Tests;
 
+[AllureNUnit]
 public class BaseTest
 {
     protected AllureLifecycle allure;
