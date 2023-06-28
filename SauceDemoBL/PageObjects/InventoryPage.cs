@@ -1,4 +1,6 @@
 ﻿using Common;
+using Core;
+using NUnit.Allure.Attributes;
 using OpenQA.Selenium.Support.UI;
 using Saucedemo.PageObjects.Parameters;
 
@@ -20,9 +22,12 @@ public class InventoryPage : BasePage
     public InventoryPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
+        Browser.Instance.TakeScreenShot("Open InventoryPage");
+
         BurgerMenu = new BurgerMenuForm();
     }
 
+    [AllureStep]
     public CartPage OpenCart()
     {
         ShoppingCart.Click();
@@ -50,11 +55,13 @@ public class InventoryPage : BasePage
         return this;
     }
 
+    [AllureStep]
     public InventoryPage SelectSort(ProductSort sortType)
     {
         var select = new SelectElement(SortSelect);
 
         select.SelectByValue(sortType.ToString());
+        Browser.Instance.TakeScreenShot("SelectSort");
 
         return this;
     }

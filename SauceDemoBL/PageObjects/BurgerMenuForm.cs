@@ -1,4 +1,6 @@
 ﻿using Common;
+using Core;
+using NUnit.Allure.Attributes;
 
 namespace Saucedemo.PageObjects;
 
@@ -22,17 +24,22 @@ public class BurgerMenuForm : BasePage
     {
     }
 
+    [AllureStep]
     public BurgerMenuForm Show()
     {
         MenuButton.Click();
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
+        Browser.Instance.TakeScreenShot("Open BurgerMenu");
+
 
         return this;
     }
 
+    [AllureStep]
     public LoginPage Logout()
     {
         LogoutLink.Click();
+        Browser.Instance.TakeScreenShot("Click Logout");
 
         return new LoginPage();
     }

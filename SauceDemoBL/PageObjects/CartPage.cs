@@ -1,4 +1,6 @@
 ﻿using Common;
+using Core;
+using NUnit.Allure.Attributes;
 using Saucedemo.PageObjects.Parameters;
 
 namespace Saucedemo.PageObjects;
@@ -16,6 +18,7 @@ public class CartPage : BasePage
     public CartPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
+        Browser.Instance.TakeScreenShot("Open CartPage");
     }
 
     public CartPage GetData()
@@ -33,6 +36,7 @@ public class CartPage : BasePage
         return this;
     }
 
+    [AllureStep]
     public CheckoutPage Checkout()
     {
         CheckOutButton.Click();
