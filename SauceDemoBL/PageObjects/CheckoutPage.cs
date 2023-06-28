@@ -1,4 +1,6 @@
 ﻿using Common;
+using Core;
+using NUnit.Allure.Attributes;
 using Saucedemo.Models;
 using Saucedemo.PageObjects.Parameters;
 
@@ -27,6 +29,7 @@ public class CheckoutPage : BasePage
     public CheckoutPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
+        Browser.Instance.TakeScreenShot("Open CheckoutPage");
     }
 
     public CheckoutPage GetData()
@@ -44,6 +47,7 @@ public class CheckoutPage : BasePage
         return this;
     }
 
+    [AllureStep]
     public CheckoutPage Continue(UserModel? user = null)
     {
         user ??= new UserModel("123", "123", "123");
@@ -51,19 +55,24 @@ public class CheckoutPage : BasePage
         FistNameInput.SendKeys(user.FirstName);
         LastPassInput.SendKeys(user.LastName);
         PostalCodeInput.SendKeys(user.PostalCode);
+        Browser.Instance.TakeScreenShot("Inputs");
 
         ContinueButton.Click();
+        Browser.Instance.TakeScreenShot("Click Continue");
 
         return this;
     }
 
+    [AllureStep]
     public CheckoutPage Finish()
     {
         FinishButton.Click();
+        Browser.Instance.TakeScreenShot("Click Finish");
 
         return this;
     }
 
+    [AllureStep]
     public InventoryPage BackHome()
     {
         BackHomeButton.Click();

@@ -1,4 +1,6 @@
 ﻿using Common;
+using Core;
+using NUnit.Allure.Attributes;
 
 namespace Saucedemo.PageObjects;
 
@@ -24,19 +26,23 @@ public class LoginPage : BasePage
     {
     }
 
+    [AllureStep]
     public LoginPage Show()
     {
         Driver.Navigate().GoToUrl(url);
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
+        Browser.Instance.TakeScreenShot("LoginPage");
 
         return this;
     }
 
+    [AllureStep]
     public InventoryPage LoginStandardUser()
     {
         UserNameInput.SendKeys(STANDARD_USER_NAME);
         UserPassInput.SendKeys(PASSWORD);
         LoginButton.Click();
+        Browser.Instance.TakeScreenShot("LoginStandardUser");
 
         return new InventoryPage();
     }

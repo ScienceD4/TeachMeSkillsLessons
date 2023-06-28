@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Allure.Net.Commons;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
@@ -13,6 +14,8 @@ public class Browser
     public IWebDriver Driver => driver;
 
     public static Browser Instance => browserInstances.Value ??= new Browser();
+
+    protected AllureLifecycle allure = AllureLifecycle.Instance;
 
     private Browser()
     {
@@ -84,5 +87,12 @@ public class Browser
         new Actions(Driver)
             .ContextClick(element)
             .Perform();
+    }
+
+    public void TakeScreenShot(string title = "screenShot")
+    {
+        var screen = Driver.TakeScreenshot();
+        var screenBytes = screen.AsByteArray;
+        allure.AddAttachment(title, "image/png", screenBytes);
     }
 }
