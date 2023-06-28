@@ -7,6 +7,7 @@ using OpenQA.Selenium.Support.Extensions;
 namespace Saucedemo.Tests;
 
 [AllureNUnit]
+[Parallelizable(ParallelScope.All)]
 public class BaseTest
 {
     protected AllureLifecycle allure;
