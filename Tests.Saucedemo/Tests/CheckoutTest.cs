@@ -6,21 +6,21 @@ public class CheckoutTest : BaseTest
     [Test]
     public void BuyProductsTest()
     {
-        var inventoryPage = new LoginPage(Driver)
+        var inventoryPage = new LoginPage()
             .Show()
             .LoginStandardUser()
             .GetData();
 
-        for (int i = 0; i < 3 && i < inventoryPage.UIInventoryItems.Count; i++)
+        for (int i = 0; i < 3 && i < (inventoryPage.UIInventoryItems?.Count ?? 0); i++)
         {
-            inventoryPage.UIInventoryItems[i].AddToCart();
+            inventoryPage.UIInventoryItems![i].AddToCart();
         }
 
         var cartPage = inventoryPage.OpenCart().GetData();
-        var cartItems = cartPage.UICartItems.ToList();
+        var cartItems = cartPage.UICartItems!.ToList();
 
         var checkoutPage = cartPage.Checkout().Continue().GetData();
-        var checkItems = checkoutPage.UICheckoutItems.ToList();
+        var checkItems = checkoutPage.UICheckoutItems!.ToList();
 
         inventoryPage = checkoutPage.Finish().BackHome();
 

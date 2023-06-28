@@ -11,9 +11,9 @@ public class CartPage : BasePage
     private IWebElement CheckOutButton => Driver.FindElement(checkOutButton);
     private IReadOnlyCollection<IWebElement> CartItems => Driver.FindElements(cartItems);
 
-    public List<UICartItem> UICartItems { get; set; }
+    public List<UICartItem>? UICartItems { get; set; }
 
-    public CartPage(IWebDriver driver) : base(driver)
+    public CartPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
     }
@@ -37,7 +37,7 @@ public class CartPage : BasePage
     {
         CheckOutButton.Click();
 
-        return new CheckoutPage(Driver);
+        return new CheckoutPage();
     }
 
     public override bool IsExist()

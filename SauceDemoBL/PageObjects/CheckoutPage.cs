@@ -22,9 +22,9 @@ public class CheckoutPage : BasePage
     private IWebElement BackHomeButton => Driver.FindElement(backHomeButton);
     private IReadOnlyCollection<IWebElement> CheckoutItems => Driver.FindElements(checkoutItems);
 
-    public List<UICheckoutItem> UICheckoutItems { get; set; }
+    public List<UICheckoutItem>? UICheckoutItems { get; set; }
 
-    public CheckoutPage(IWebDriver driver) : base(driver)
+    public CheckoutPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
     }
@@ -68,7 +68,7 @@ public class CheckoutPage : BasePage
     {
         BackHomeButton.Click();
 
-        return new InventoryPage(Driver);
+        return new InventoryPage();
     }
 
     public override bool IsExist()

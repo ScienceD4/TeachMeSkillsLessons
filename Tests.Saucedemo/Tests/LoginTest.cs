@@ -6,7 +6,7 @@ public class LoginTest : BaseTest
     [Test]
     public void LoginStandardUser()
     {
-        var page = new LoginPage(Driver)
+        var page = new LoginPage()
             .Show()
             .LoginStandardUser();
 
@@ -16,7 +16,7 @@ public class LoginTest : BaseTest
     [Test]
     public void LoginGlitchUser()
     {
-        var page = new LoginPage(Driver)
+        var page = new LoginPage()
             .Show()
             .LoginGlitchUser();
 
@@ -26,7 +26,7 @@ public class LoginTest : BaseTest
     [Test]
     public void LogoutStandardUser()
     {
-        var page = new LoginPage(Driver)
+        var page = new LoginPage()
             .Show()
             .LoginStandardUser()
             .BurgerMenu.Show()
@@ -40,7 +40,7 @@ public class LoginTest : BaseTest
     {
         var expextedError = "Sorry, this user has been locked out";
 
-        var page = new LoginPage(Driver)
+        var page = new LoginPage()
             .Show()
             .LoginLockedUser();
 

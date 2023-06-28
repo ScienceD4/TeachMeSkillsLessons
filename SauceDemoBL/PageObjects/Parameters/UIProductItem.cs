@@ -10,8 +10,8 @@ public abstract class UIProductItem
 
     protected ISearchContext searchContext;
 
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
     public double Price { get; set; }
 
     protected UIProductItem(ISearchContext searchContext)

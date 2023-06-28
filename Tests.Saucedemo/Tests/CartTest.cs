@@ -8,20 +8,20 @@ public class CartTest : BaseTest
     [Test]
     public void AddToCartProductsTest()
     {
-        var inventoryPage = new LoginPage(Driver)
+        var inventoryPage = new LoginPage()
             .Show()
             .LoginStandardUser()
             .GetData();
 
         var inventoryItems = new List<UIInventoryItem>();
-        for (int i = 0; i < 3 && i < inventoryPage.UIInventoryItems.Count; i++)
+        for (int i = 0; i < 3 && i < (inventoryPage.UIInventoryItems?.Count ?? 0); i++)
         {
-            inventoryPage.UIInventoryItems[i].AddToCart();
+            inventoryPage.UIInventoryItems![i].AddToCart();
             inventoryItems.Add(inventoryPage.UIInventoryItems[i]);
         }
 
         var cartPage = inventoryPage.OpenCart().GetData();
-        var cartItems = cartPage.UICartItems.ToList();
+        var cartItems = cartPage.UICartItems!.ToList();
 
         Assert.Multiple(() =>
         {
@@ -40,15 +40,15 @@ public class CartTest : BaseTest
     [Test]
     public void AddAndRemoveProductsTest()
     {
-        var inventoryPage = new LoginPage(Driver)
+        var inventoryPage = new LoginPage()
             .Show()
             .LoginStandardUser()
             .GetData();
 
         var inventoryItems = new List<UIInventoryItem>();
-        for (int i = 0; i < 3 && i < inventoryPage.UIInventoryItems.Count; i++)
+        for (int i = 0; i < 3 && i < (inventoryPage.UIInventoryItems?.Count ?? 0); i++)
         {
-            inventoryPage.UIInventoryItems[i].AddToCart();
+            inventoryPage.UIInventoryItems![i].AddToCart();
             inventoryItems.Add(inventoryPage.UIInventoryItems[i]);
         }
 
@@ -56,11 +56,11 @@ public class CartTest : BaseTest
 
         for (int i = 0; i < inventoryItems.Count - 1; i++)
         {
-            cartPage.UICartItems.Last().Remove();
+            cartPage.UICartItems!.Last().Remove();
             cartPage.GetData();
         }
 
-        var cartItems = cartPage.UICartItems.ToList();
+        var cartItems = cartPage.UICartItems!.ToList();
 
         Assert.Multiple(() =>
         {

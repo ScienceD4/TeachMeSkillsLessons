@@ -1,4 +1,6 @@
-﻿namespace Saucedemo.Tests;
+﻿using Saucedemo.PageObjects.Parameters;
+
+namespace Saucedemo.Tests;
 
 [TestFixture]
 public class DetailsTest : BaseTest
@@ -6,12 +8,13 @@ public class DetailsTest : BaseTest
     [Test]
     public void CheckProductDetails()
     {
-        var inventoryPage = new LoginPage(Driver)
+        var inventoryPage = new LoginPage()
             .Show()
             .LoginStandardUser()
-            .GetData();
+        .GetData();
 
-        var indexItem = new Random().Next(inventoryPage.UIInventoryItems.Count);
+        var indexItem = new Random().Next(inventoryPage.UIInventoryItems?.Count ??
+            throw new Exception($"'{nameof(inventoryPage.UIInventoryItems)}' is null"));
 
         var inventoryItem = inventoryPage.UIInventoryItems[indexItem];
         var detailsPage = inventoryItem.Details().UIDetailsItem;

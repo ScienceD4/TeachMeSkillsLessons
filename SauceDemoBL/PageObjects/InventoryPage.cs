@@ -14,20 +14,20 @@ public class InventoryPage : BasePage
     private IWebElement SortSelect => Driver.FindElement(inventorySort);
     private IReadOnlyCollection<IWebElement> InventoryItems => Driver.FindElements(inventoryItems);
 
-    public List<UIInventoryItem> UIInventoryItems { get; set; }
+    public List<UIInventoryItem>? UIInventoryItems { get; set; }
     public BurgerMenuForm BurgerMenu { get; set; }
 
-    public InventoryPage(IWebDriver driver) : base(driver)
+    public InventoryPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
-        BurgerMenu = new BurgerMenuForm(driver);
+        BurgerMenu = new BurgerMenuForm();
     }
 
     public CartPage OpenCart()
     {
         ShoppingCart.Click();
 
-        return new CartPage(Driver);
+        return new CartPage();
     }
 
     public override bool IsExist()
@@ -43,7 +43,7 @@ public class InventoryPage : BasePage
         {
             foreach (var item in InventoryItems)
             {
-                UIInventoryItems.Add(new UIInventoryItem(Driver, item).GetData());
+                UIInventoryItems.Add(new UIInventoryItem(item).GetData());
             }
         }
 

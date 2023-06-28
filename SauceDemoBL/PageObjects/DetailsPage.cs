@@ -14,25 +14,25 @@ public class DetailsPage : BasePage
     public UIDetailsItem UIDetailsItem { get; set; }
     public BurgerMenuForm BurgerMenu { get; set; }
 
-    public DetailsPage(IWebDriver driver) : base(driver)
+    public DetailsPage() : base()
     {
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
-        BurgerMenu = new BurgerMenuForm(driver);
-        UIDetailsItem = new UIDetailsItem(driver).GetData();
+        BurgerMenu = new BurgerMenuForm();
+        UIDetailsItem = new UIDetailsItem(Driver).GetData();
     }
 
     public InventoryPage BackToProducts()
     {
         BackButton.Click();
 
-        return new InventoryPage(Driver);
+        return new InventoryPage();
     }
 
     public CartPage OpenCart()
     {
         ShoppingCart.Click();
 
-        return new CartPage(Driver);
+        return new CartPage();
     }
 
     public override bool IsExist()

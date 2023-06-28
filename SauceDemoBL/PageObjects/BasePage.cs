@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Core;
+using OpenQA.Selenium;
 
 namespace Saucedemo.PageObjects;
 
@@ -9,9 +10,9 @@ public abstract class BasePage
 
     protected IWebDriver Driver { get; }
 
-    protected BasePage(IWebDriver driver)
+    protected BasePage()
     {
-        Driver = driver;
+        Driver = Browser.Instance.Driver;
     }
 
     public abstract bool IsExist();
