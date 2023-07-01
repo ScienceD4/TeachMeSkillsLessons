@@ -1,4 +1,4 @@
-﻿namespace ApiTests.Core;
+﻿namespace Core.Api;
 
 public class BaseService
 {

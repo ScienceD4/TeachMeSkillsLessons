@@ -1,4 +1,6 @@
-﻿namespace SalesForceBL.Elements;
+﻿using OpenQA.Selenium;
+
+namespace Core.WebElements;
 
 public class Input : BaseElement
 {
@@ -10,6 +12,7 @@ public class Input : BaseElement
     {
         if (string.IsNullOrEmpty(text)) return;
 
+        Wait();
         WebElement.Clear();
         WebElement.SendKeys(text);
     }

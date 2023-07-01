@@ -1,4 +1,6 @@
-﻿namespace SalesForceBL.Elements;
+﻿using OpenQA.Selenium;
+
+namespace Core.WebElements;
 
 public class Table : BaseElement
 {

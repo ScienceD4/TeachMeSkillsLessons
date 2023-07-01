@@ -11,6 +11,7 @@ public class Browser
     private static readonly ThreadLocal<Browser> browserInstances = new();
     private readonly IWebDriver driver;
 
+    public bool IsSaveOnAllure { get; set; } = true;
     public IWebDriver Driver => driver;
 
     public static Browser Instance => browserInstances.Value ??= new Browser();
@@ -93,6 +94,27 @@ public class Browser
     {
         var screen = Driver.TakeScreenshot();
         var screenBytes = screen.AsByteArray;
-        allure.AddAttachment(title, "image/png", screenBytes);
+
+        if (IsSaveOnAllure)
+        {
+            allure.AddAttachment(title, "image/png", screenBytes);
+        }
+        else
+        {
+            SaveScreen(title, screenBytes);
+        }
+    }
+
+    private static void SaveScreen(string title, byte[] bytes)
+    {
+        var directory = "screen";
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+        var files = Directory.GetFiles(directory);
+        var time = DateTime.Now.ToString("HHmmss");
+
+        File.WriteAllBytes($@"{directory}\{files.Length + 1}_{time}_{title}.png", bytes);
     }
 }

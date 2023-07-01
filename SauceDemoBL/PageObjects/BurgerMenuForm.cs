@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using Core.Common;
 using Core;
 using NUnit.Allure.Attributes;
 

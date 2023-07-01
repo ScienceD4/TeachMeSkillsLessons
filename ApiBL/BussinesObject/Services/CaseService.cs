@@ -1,6 +1,6 @@
 ﻿using ApiBL.BussinesObject.Clients;
 using ApiBL.BussinesObject.Models;
-using ApiTests.Core;
+using Core.Api;
 using Newtonsoft.Json;
 using RestSharp;
 
