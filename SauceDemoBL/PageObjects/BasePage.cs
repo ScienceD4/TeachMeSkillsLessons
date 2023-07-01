@@ -1,5 +1,4 @@
 ﻿using Core;
-using OpenQA.Selenium;
 
 namespace Saucedemo.PageObjects;
 

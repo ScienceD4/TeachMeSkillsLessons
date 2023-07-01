@@ -1,5 +1,4 @@
-﻿using Core;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
 namespace Core.WebElements;

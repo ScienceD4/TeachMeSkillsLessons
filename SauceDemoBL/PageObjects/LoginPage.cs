@@ -1,5 +1,5 @@
-﻿using Core.Common;
-using Core;
+﻿using Core;
+using Core.Common;
 using NUnit.Allure.Attributes;
 
 namespace Saucedemo.PageObjects;

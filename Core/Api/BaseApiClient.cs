@@ -1,5 +1,4 @@
-﻿using Core;
-using RestSharp;
+﻿using RestSharp;
 
 namespace Core.Api;
 

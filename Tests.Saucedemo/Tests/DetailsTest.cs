@@ -1,6 +1,4 @@
-﻿using Saucedemo.PageObjects.Parameters;
-
-namespace Saucedemo.Tests;
+﻿namespace Saucedemo.Tests;
 
 [TestFixture]
 public class DetailsTest : BaseTest

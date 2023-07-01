@@ -10,7 +10,7 @@ public class UsersBasePage : BasePage
     protected Button Edit { get; set; } = new(By.XPath("//div[@role='menu']//a[@title='Edit']"));
     protected Button Delete { get; set; } = new(By.XPath("//div[@role='menu']//a[@title='Delete']"));
     protected Button ConfirmDelete { get; set; } = new(By.XPath("//button[@title='Delete']//span"));
-    protected Button Refresh{ get; set; } = new(By.XPath("//button[@name='refreshButton']"));
+    protected Button Refresh { get; set; } = new(By.XPath("//button[@name='refreshButton']"));
     protected Table UsersTable { get; set; } = new(By.XPath("//table"));
 
     public UsersBasePage()

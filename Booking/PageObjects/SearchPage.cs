@@ -2,7 +2,6 @@
 using Core;
 using Core.Common;
 using Core.WebElements;
-using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using OpenQA.Selenium;
 using System.Collections.ObjectModel;
@@ -16,7 +15,7 @@ public class SearchPage : BasePage
 
     private Button SearchButton { get; set; } = new(By.XPath("//button[@type='submit']"));
     private Button AutoCompleteButton { get; set; } = new(By.XPath("//div[@data-testid='autocomplete-result']//div"));
-    private Input SearchInput  { get; set; } = new(By.XPath("//div[@data-testid='destination-container']//input[@name='ss']"));
+    private Input SearchInput { get; set; } = new(By.XPath("//div[@data-testid='destination-container']//input[@name='ss']"));
     private ReadOnlyCollection<IWebElement> HotelWebElements => Driver.FindElements(By.XPath("//div[@data-testid='property-card']"));
 
     //[AllureStep]

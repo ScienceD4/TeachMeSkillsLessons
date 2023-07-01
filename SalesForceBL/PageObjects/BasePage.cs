@@ -1,5 +1,4 @@
 ﻿using Core.Common;
-using OpenQA.Selenium.Support.UI;
 
 namespace SalesForceBL.PageObjects;
 
