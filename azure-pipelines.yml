@@ -1,0 +1,22 @@
+
+pool:
+  name: 'agents'
+
+steps:
+- task: NuGetCommand@2
+  displayName: 'Restore NuGet package for Solution'
+  inputs: 
+    command: 'restore'
+    restoreSolution: '$(solution)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build Solution'
+  inputs:
+    command: 'build'
+    arguments: '--configuration Debug'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run tests'
+  inputs:
+    command: 'test'
+    arguments: 'ApiTests'
