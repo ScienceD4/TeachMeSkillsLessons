@@ -1,5 +1,4 @@
-﻿using Allure.Net.Commons;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
@@ -12,11 +11,15 @@ public class Browser
     private readonly IWebDriver driver;
 
     public bool IsSaveOnAllure { get; set; } = true;
+    public bool IsSaveOnDisk { get; set; } = false;
+    public bool IsNUnit { get; set; } = true;
+
     public IWebDriver Driver => driver;
 
     public static Browser Instance => browserInstances.Value ??= new Browser();
 
-    protected AllureLifecycle allure = AllureLifecycle.Instance;
+    protected Allure.Commons.AllureLifecycle allureBDD = Allure.Commons.AllureLifecycle.Instance;
+    protected Allure.Net.Commons.AllureLifecycle allureNUnit = Allure.Net.Commons.AllureLifecycle.Instance;
 
     private Browser()
     {
@@ -97,9 +100,18 @@ public class Browser
 
         if (IsSaveOnAllure)
         {
-            allure.AddAttachment(title, "image/png", screenBytes);
+            if (IsNUnit)
+            {
+                 allureNUnit.AddAttachment(title, "image/png", screenBytes);
+
+            }
+            else
+            {
+                allureBDD.AddAttachment(title, "image/png", screenBytes);
+            }
         }
-        else
+
+        if (IsSaveOnDisk)
         {
             SaveScreen(title, screenBytes);
         }

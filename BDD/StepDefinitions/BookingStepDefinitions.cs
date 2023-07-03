@@ -1,18 +1,14 @@
 ﻿using Booking.PageObjects;
 using Booking.PageObjects.PageElements;
-using Core;
-using NUnit.Allure.Core;
 using NUnit.Framework;
 
 namespace BDD.StepDefinitions;
 
 [Binding]
-[AllureNUnit]
 public class BookingStepDefinitions : BaseDefinitions
 {
     protected BookingStepDefinitions(ScenarioContext context) : base(context)
     {
-        Browser.Instance.IsSaveOnAllure = false;
     }
 
     [Given(@"hotel name is (.*)")]
@@ -39,11 +35,5 @@ public class BookingStepDefinitions : BaseDefinitions
             ?? throw new Exception("Hotel is null");
 
         Assert.That(hotel.Score, Is.EqualTo(score));
-    }
-
-    [Then(@"close browser")]
-    public void ThenCloseBrowser()
-    {
-        Browser.Instance.CloseBrowser();
     }
 }

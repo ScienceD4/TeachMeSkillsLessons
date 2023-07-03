@@ -101,9 +101,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.Then("hotel score is 9.1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 10
- testRunner.And("close browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
             }
             this.ScenarioCleanup();
         }
