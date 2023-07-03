@@ -1,5 +1,5 @@
-﻿using Common;
-using Core;
+﻿using Core;
+using Core.Common;
 using NUnit.Allure.Attributes;
 using OpenQA.Selenium.Support.UI;
 using Saucedemo.PageObjects.Parameters;

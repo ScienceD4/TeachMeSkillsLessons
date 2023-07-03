@@ -1,7 +1,4 @@
-﻿using Core;
-using OpenQA.Selenium;
-
-namespace Saucedemo.PageObjects.Parameters;
+﻿namespace Saucedemo.PageObjects.Parameters;
 
 public class UIInventoryItem : UIProductItem
 {

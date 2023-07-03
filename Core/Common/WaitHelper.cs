@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Common;
+namespace Core.Common;
 
 public static class WaitHelper
 {

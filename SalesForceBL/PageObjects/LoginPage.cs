@@ -1,5 +1,5 @@
 ﻿using Core.Settings;
-using SalesForceBL.Elements;
+using Core.WebElements;
 
 namespace SalesForceBL.PageObjects;
 

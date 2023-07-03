@@ -1,4 +1,4 @@
-﻿using SalesForceBL.Elements;
+﻿using Core.WebElements;
 using SalesForceBL.PageObjects.ModelParams;
 
 namespace SalesForceBL.PageObjects;

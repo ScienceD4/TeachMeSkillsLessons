@@ -1,15 +1,14 @@
-﻿using Common;
-using Core;
-using Core.Settings;
+﻿using Core.Common;
+using OpenQA.Selenium;
 
-namespace SalesForceBL.Elements;
+namespace Core.WebElements;
 
 public abstract class BaseElement
 {
     private readonly By locator;
     protected IWebDriver Driver => Browser.Instance.Driver;
 
-    public IWebElement WebElement => Driver.WaitLoad(d => d.FindElement(locator), Settings.Browser.TimeOutSeconds * 1000);
+    public IWebElement WebElement => Driver.WaitLoad(d => d.FindElement(locator), Settings.Settings.Browser.TimeOutSeconds * 1000);
     public bool IsExist => ElementIsExist();
 
     protected BaseElement(By locator)
@@ -19,7 +18,7 @@ public abstract class BaseElement
 
     protected void Wait()
     {
-        Driver.WaitLoad(x => IsExist, Settings.Browser.TimeOutSeconds * 1000);
+        Driver.WaitLoad(x => IsExist, Settings.Settings.Browser.TimeOutSeconds * 1000);
     }
 
     private bool ElementIsExist()

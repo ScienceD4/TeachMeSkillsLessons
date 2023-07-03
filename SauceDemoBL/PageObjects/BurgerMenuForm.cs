@@ -1,5 +1,5 @@
-﻿using Common;
-using Core;
+﻿using Core;
+using Core.Common;
 using NUnit.Allure.Attributes;
 
 namespace Saucedemo.PageObjects;
@@ -30,7 +30,6 @@ public class BurgerMenuForm : BasePage
         MenuButton.Click();
         Driver.WaitLoad(x => IsExist(), TIME_OUT_LOAD_PAGE);
         Browser.Instance.TakeScreenShot("Open BurgerMenu");
-
 
         return this;
     }

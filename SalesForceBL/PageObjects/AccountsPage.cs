@@ -1,5 +1,5 @@
-﻿using Common;
-using SalesForceBL.Elements;
+﻿using Core.Common;
+using Core.WebElements;
 using SalesForceBL.PageObjects.ModelParams;
 
 namespace SalesForceBL.PageObjects;

@@ -1,4 +1,4 @@
-﻿using ApiTests.Core;
+﻿using Core.Api;
 using Core.Settings;
 
 namespace ApiBL.BussinesObject.Clients;

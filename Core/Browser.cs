@@ -1,5 +1,4 @@
-﻿using Allure.Net.Commons;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
@@ -11,11 +10,16 @@ public class Browser
     private static readonly ThreadLocal<Browser> browserInstances = new();
     private readonly IWebDriver driver;
 
+    public bool IsSaveOnAllure { get; set; } = true;
+    public bool IsSaveOnDisk { get; set; } = false;
+    public bool IsNUnit { get; set; } = true;
+
     public IWebDriver Driver => driver;
 
     public static Browser Instance => browserInstances.Value ??= new Browser();
 
-    protected AllureLifecycle allure = AllureLifecycle.Instance;
+    protected Allure.Commons.AllureLifecycle allureBDD = Allure.Commons.AllureLifecycle.Instance;
+    protected Allure.Net.Commons.AllureLifecycle allureNUnit = Allure.Net.Commons.AllureLifecycle.Instance;
 
     private Browser()
     {
@@ -93,6 +97,36 @@ public class Browser
     {
         var screen = Driver.TakeScreenshot();
         var screenBytes = screen.AsByteArray;
-        allure.AddAttachment(title, "image/png", screenBytes);
+
+        if (IsSaveOnAllure)
+        {
+            if (IsNUnit)
+            {
+                 allureNUnit.AddAttachment(title, "image/png", screenBytes);
+
+            }
+            else
+            {
+                allureBDD.AddAttachment(title, "image/png", screenBytes);
+            }
+        }
+
+        if (IsSaveOnDisk)
+        {
+            SaveScreen(title, screenBytes);
+        }
+    }
+
+    private static void SaveScreen(string title, byte[] bytes)
+    {
+        var directory = "screen";
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+        var files = Directory.GetFiles(directory);
+        var time = DateTime.Now.ToString("HHmmss");
+
+        File.WriteAllBytes($@"{directory}\{files.Length + 1}_{time}_{title}.png", bytes);
     }
 }

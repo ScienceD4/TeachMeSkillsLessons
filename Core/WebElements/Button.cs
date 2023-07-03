@@ -1,7 +1,7 @@
-﻿using Core;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace SalesForceBL.Elements;
+namespace Core.WebElements;
 
 public class Button : BaseElement
 {

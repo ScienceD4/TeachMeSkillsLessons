@@ -1,5 +1,5 @@
-﻿using Common;
-using Core;
+﻿using Core;
+using Core.Common;
 using NUnit.Allure.Attributes;
 using Saucedemo.Models;
 using Saucedemo.PageObjects.Parameters;

@@ -1,7 +1,6 @@
-﻿using Core;
-using RestSharp;
+﻿using RestSharp;
 
-namespace ApiTests.Core;
+namespace Core.Api;
 
 public class BaseApiClient
 {

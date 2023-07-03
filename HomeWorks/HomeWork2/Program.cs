@@ -22,12 +22,15 @@ public class Program
             case "*":
                 result = operand1 * operand2;
                 break;
+
             case "+":
                 result = operand1 + operand2;
                 break;
+
             case "-":
                 result = operand1 - operand2;
                 break;
+
             case "/":
                 if (operand2 == 0)
                 {
@@ -36,12 +39,15 @@ public class Program
                 }
                 result = operand1 / operand2;
                 break;
+
             case "%":
                 result = operand1 % operand2;
                 break;
+
             case "^":
                 result = Math.Pow(operand1, operand2);
                 break;
+
             default:
                 Console.WriteLine("Operation sign not defined");
                 return;
